@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
-
+import Footer from "@/components/layout/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -18,8 +18,11 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        {/* Create a Layout component here for all apps in the components section and import it here to pass in the children to */}
-        <body className={inter.className}>{children}</body>
+        <body className={`${inter.className} bg-slate-300 text-slate-900`}>
+          <div className="h-1/6">Here is where NavBar goes</div>
+          {children}
+          <Footer />
+        </body>
       </html>
     </ClerkProvider>
   );
