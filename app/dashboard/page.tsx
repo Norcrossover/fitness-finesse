@@ -1,9 +1,46 @@
-import Link from "next/link";
+"use client";
+import React from "react";
+import {
+  RedirectToSignIn,
+  SignedIn,
+  SignedOut,
+  UserButton,
+  useUser,
+} from "@clerk/clerk-react";
+import { useRouter } from "next/navigation";
 
-export default function Dashboard() {
+const Dashboard = () => {
+  const { isSignedIn, isLoaded } = useUser();
+  const router = useRouter();
+
+  React.useEffect(() => {
+    if (!isLoaded) return; // Wait until user loading state is determined
+    if (!isSignedIn) {
+      router.push("/sign-in"); // Redirect if not signed in
+    }
+  }, [isSignedIn, isLoaded, router]);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>This is the dashboard</h1>
-    </main>
+    <div>
+      {/* Dashboard content */}
+      {/* {isSignedIn && <p>Welcome to your Dashboard!</p>} */}
+      <SignedOut>
+        <RedirectToSignIn></RedirectToSignIn>
+      </SignedOut>
+      <SignedIn>
+        <p>Welcome to your Dashboard!</p>
+        <UserButton
+          showName={true}
+          appearance={{
+            elements: {
+              formButtonPrimary:
+                "bg-slate-500 hover:bg-slate-400 text-sm normal-case",
+            },
+          }}
+        />
+      </SignedIn>
+    </div>
   );
-}
+};
+
+export default Dashboard;
