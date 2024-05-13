@@ -34,3 +34,51 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+# Project Structure
+
+## Top-Level Directory: /fitness-finesse
+
+### /app
+
+- **Pages** directory for routing in Next.js
+  - **\_app.tsx**: Custom App component
+  - **index.tsx**: Home page
+  - **/api**: API routes for server-side functionality
+    - **handler.ts**: Example API route
+
+### /public
+
+- Static files like images and fonts
+
+### /src
+
+- Source files for non-page related code
+  - **/components**: All React components
+    - **/common**: Common or shared components
+    - **/layout**: Layout components, e.g., Header, Footer
+    - **/features**: Feature-specific components
+  - **/hooks**: Custom React hooks
+  - **/styles**: Styles, typically for Tailwind CSS
+  - **/lib**: Reusable libraries and utilities
+  - **/types**: TypeScript types
+    - **/api**: Types for external API responses
+    - **/db**: Types for database models
+    - **index.ts**: Export point for types
+
+### /server
+
+- Separate backend logic, potentially outside of Next.js
+  - **/config**: Server configuration files
+  - **/controllers**: Controllers for handling business logic
+  - **/models**: Models for interacting with the database
+  - **/routes**: Express routes
+  - **/middleware**: Middleware functions
+  - **server.ts**: Entry point for the Express server
+
+### Configuration Files
+
+- **.env.local**: Local environment variables
+- **.env.production**: Production environment variables
+- **package.json**: Project dependencies and scripts
+- **tsconfig.json**: TypeScript configuration
