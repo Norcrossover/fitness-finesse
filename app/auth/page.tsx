@@ -1,9 +1,7 @@
-import Link from "next/link";
-
-export default function Dashboard() {
+export default function Auth() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>This is the dashboard</h1>
+      <h1>This is the auth page</h1>
     </main>
   );
 }
