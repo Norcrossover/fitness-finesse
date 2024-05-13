@@ -35,50 +35,59 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-# Project Structure
+## Project Structure
 
-## Top-Level Directory: /fitness-finesse
+### Top-Level Directory: /fitness-finesse
 
-### /app
+#### /app
 
-- **Pages** directory for routing in Next.js
-  - **\_app.tsx**: Custom App component
-  - **index.tsx**: Home page
-  - **/api**: API routes for server-side functionality
-    - **handler.ts**: Example API route
+- **Purpose**: Contains all Next.js pages and API routes.
+- **Contents**:
+  - `/api`: API routes handling backend logic.
+    - `auth.ts`: Authentication routes.
+    - `workouts.ts`: CRUD operations for workout management.
+  - `_app.tsx`: Custom App component, setups up page transitions and layout.
+  - `index.tsx`: Home page of the application.
+  - `dashboard.tsx`: User dashboard displaying workout logs and progress.
 
-### /public
+#### /public
 
-- Static files like images and fonts
+- Contains static files like images and fonts.
 
-### /src
+#### /styles
 
-- Source files for non-page related code
-  - **/components**: All React components
-    - **/common**: Common or shared components
-    - **/layout**: Layout components, e.g., Header, Footer
-    - **/features**: Feature-specific components
-  - **/hooks**: Custom React hooks
-  - **/styles**: Styles, typically for Tailwind CSS
-  - **/lib**: Reusable libraries and utilities
-  - **/types**: TypeScript types
-    - **/api**: Types for external API responses
-    - **/db**: Types for database models
-    - **index.ts**: Export point for types
+- Stores global style files, CSS or Sass.
 
-### /server
+#### /components
 
-- Separate backend logic, potentially outside of Next.js
-  - **/config**: Server configuration files
-  - **/controllers**: Controllers for handling business logic
-  - **/models**: Models for interacting with the database
-  - **/routes**: Express routes
-  - **/middleware**: Middleware functions
-  - **server.ts**: Entry point for the Express server
+- React components used throughout the application.
+  - `Layout.tsx`: Main layout component that wraps around the app.
+  - `Navbar.tsx`: Navigation bar for easy navigation across the application.
 
-### Configuration Files
+#### /lib
 
-- **.env.local**: Local environment variables
-- **.env.production**: Production environment variables
-- **package.json**: Project dependencies and scripts
-- **tsconfig.json**: TypeScript configuration
+- Reusable libraries and utilities.
+  - `dbConnect.ts`: Utility for MongoDB connection handling.
+  - `session.ts`: Manages user sessions.
+
+#### /models
+
+- Mongoose models for structuring MongoDB documents.
+  - `userModel.ts`: Schema definition for users.
+  - `workoutModel.ts`: Schema definition for workouts.
+
+#### /hooks
+
+- Custom React hooks for shared logic across components.
+
+#### /context
+
+- React context for state management across components, if needed.
+
+#### Configuration and Miscellaneous Files
+
+- `.env.local`: Stores environment variables locally, not tracked by Git.
+- `next.config.js`: Configuration for Next.js features.
+- `tsconfig.json`: Configuration file for TypeScript compiler options.
+- `package.json`: Manages project dependencies and scripts.
+- `README.md`: Detailed documentation of the project setup and instructions.
