@@ -60,6 +60,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
   - `/sign-up` - sign up page
     - `[[...sign-up]]`
       - `page.tsx`
+  - `/api`
+    - `wger.tsx`
   - `layout.tsx` - landing page layout
   - `page.tsx` - landing page
   - `globals.css` - for the VERY RARE case that we need manual CSS, tailwind should handle all of our cases though
