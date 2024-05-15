@@ -7,8 +7,12 @@ interface HamburgerProps {
 
 const Hamburger: React.FC<HamburgerProps> = ({ handleMenu }) => {
   return (
-    <button className="w-10 h-10 mr-8" onClick={handleMenu}>
-      <img src="/hamburger.svg" alt="a hamburger icon" />
+    <button onClick={handleMenu}>
+      <img
+        src="/hamburger.svg"
+        alt="A hamburger icon"
+        className="w-10 h-10 mr-8 sm:hidden cursor-pointer transition-transform duration-300 hover:scale-110"
+      />
     </button>
   );
 };

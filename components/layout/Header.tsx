@@ -13,21 +13,21 @@ export default function Header() {
 
   return (
     <header className="flex justify-between items-center p-5">
-      {/* Render both components */}
+      {/* Render both components. The div is 1 of 2 solutions for spacing */}
       <Logo />
-      <NavBar />
-      {/* Render Hamburger when !isOpen and on sm */}
-      {!isOpen && (
-        <div className="sm:hidden">
-          <Hamburger handleMenu={toggleMenu} />
-        </div>
-      )}
-      {/* Conditionally render the close button */}
+      <div className="flex-grow"></div>
+      <NavBar isOpen={isOpen} />
+      {/* Render Hamburger conditionally */}
+      {!isOpen && <Hamburger handleMenu={toggleMenu} />}
+      {/* Close SVG */}
       {isOpen && (
         <>
-          {/* TODO: Look up a SVG icon for closing */}
-          <button className="w-10 h-10 sm:hidden" onClick={toggleMenu}>
-            Close
+          <button onClick={toggleMenu}>
+            <img
+              src="./close.svg"
+              alt="A button to close the menu"
+              className="w-10 h-10 mr-8 sm:hidden"
+            ></img>
           </button>
         </>
       )}

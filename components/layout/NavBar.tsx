@@ -1,52 +1,68 @@
 import Link from "next/link";
 import React from "react";
+import clsx from "clsx";
 
-const NavLinks = () => {
+interface NavBarProps {
+  isOpen: boolean;
+}
+
+interface NavLinksProps {
+  isOpen: boolean;
+}
+
+const NavLinks: React.FC<NavLinksProps> = ({ isOpen }) => {
   return (
-    <>
-      {/* Semantically correct the navbar with ul*/}
-      <ul className="hidden sm:flex sm:gap-7 md:font-medium md:gap-10 lg:gap-20 xl:text-lg xl:gap-28">
-        <li>
-          <Link
-            className="hover:text-white hover:border-b-2 hover:border-neutral-50"
-            href="/dashboard/motivation"
-          >
-            Motivation
-          </Link>
-        </li>
-        <li>
-          <Link
-            className="hover:text-white hover:border-b-2 hover:border-neutral-50"
-            href="/dashboard/journal"
-          >
-            Journal
-          </Link>
-        </li>
-        <li>
-          <Link
-            className="hover:text-white hover:border-b-2 hover:border-neutral-50"
-            href="/dashboard/logger"
-          >
-            Logger
-          </Link>
-        </li>
-        <li>
-          <Link
-            className="hover:text-white hover:border-b-2 hover:border-neutral-50"
-            href="/dashboard/planner"
-          >
-            Workout Planner
-          </Link>
-        </li>
-      </ul>
-    </>
+    <ul
+      className={clsx(
+        "sm:flex sm:gap-7 md:font-medium md:gap-10 lg:gap-20 xl:text-lg xl:gap-28",
+        {
+          hidden: !isOpen,
+          col: isOpen,
+        }
+      )}
+    >
+      <li>
+        <Link
+          className="hover:text-white hover:border-b-2"
+          href="/dashboard/motivation"
+        >
+          Motivation
+        </Link>
+      </li>
+      <li>
+        <Link
+          className="hover:text-white hover:border-b-2"
+          href="/dashboard/journal"
+        >
+          Journal
+        </Link>
+      </li>
+      <li>
+        <Link
+          className="hover:text-white hover:border-b-2"
+          href="/dashboard/logger"
+        >
+          Logger
+        </Link>
+      </li>
+      <li>
+        <Link
+          className="hover:text-white hover:border-b-2"
+          href="/dashboard/planner"
+        >
+          Workout Planner
+        </Link>
+      </li>
+    </ul>
   );
 };
 
-export default function NavBar() {
+const NavBar: React.FC<NavBarProps> = ({ isOpen }) => {
   return (
     <nav>
-      <NavLinks />
+      <NavLinks isOpen={isOpen} />
     </nav>
   );
-}
+};
+
+export default NavBar;
