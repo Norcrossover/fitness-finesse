@@ -17,13 +17,13 @@ const NavLinks: React.FC<NavLinksProps> = ({ isOpen }) => {
         "sm:flex sm:gap-7 md:font-medium md:gap-10 lg:gap-20 xl:text-lg xl:gap-28",
         {
           hidden: !isOpen,
-          col: isOpen,
+          "flex flex-col items-center justify-center gap-1 sm:hidden": isOpen,
         }
       )}
     >
       <li>
         <Link
-          className="hover:text-white hover:border-b-2"
+          className="hover:text-slate-50 hover:border-b-2"
           href="/dashboard/motivation"
         >
           Motivation
@@ -31,7 +31,7 @@ const NavLinks: React.FC<NavLinksProps> = ({ isOpen }) => {
       </li>
       <li>
         <Link
-          className="hover:text-white hover:border-b-2"
+          className="hover:text-slate-50 hover:border-b-2"
           href="/dashboard/journal"
         >
           Journal
@@ -39,7 +39,7 @@ const NavLinks: React.FC<NavLinksProps> = ({ isOpen }) => {
       </li>
       <li>
         <Link
-          className="hover:text-white hover:border-b-2"
+          className="hover:text-slate-50 hover:border-b-2"
           href="/dashboard/logger"
         >
           Logger
@@ -47,7 +47,7 @@ const NavLinks: React.FC<NavLinksProps> = ({ isOpen }) => {
       </li>
       <li>
         <Link
-          className="hover:text-white hover:border-b-2"
+          className="hover:text-slate-50 hover:border-b-2"
           href="/dashboard/planner"
         >
           Workout Planner

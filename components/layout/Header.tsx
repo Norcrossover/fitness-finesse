@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Logo from "./Logo";
 import NavBar from "./NavBar";
 import Hamburger from "./Hamburger";
+import Close from "./Close";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false); // Controls the hamburger state
@@ -19,18 +20,7 @@ export default function Header() {
       <NavBar isOpen={isOpen} />
       {/* Render Hamburger conditionally */}
       {!isOpen && <Hamburger handleMenu={toggleMenu} />}
-      {/* Close SVG */}
-      {isOpen && (
-        <>
-          <button onClick={toggleMenu}>
-            <img
-              src="./close.svg"
-              alt="A button to close the menu"
-              className="w-10 h-10 mr-8 sm:hidden"
-            ></img>
-          </button>
-        </>
-      )}
+      {isOpen && <Close handleMenu={toggleMenu} />}
     </header>
   );
 }
