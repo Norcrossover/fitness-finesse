@@ -21,15 +21,13 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body
-          className={`${inter.className} bg-slate-200 text-slate-900 grid grid-rows-12`}
+          className={`${inter.className} bg-slate-200 text-slate-900 grid grid-rows-12 divide-y divide-slate-400`}
         >
           <div>
             <Header />
           </div>
-          <div className="row-span-10">{children}</div>
-          <div>
-            <Footer />
-          </div>
+          <div className="row-span-11">{children}</div>
+          <Footer />
         </body>
       </html>
     </ClerkProvider>
