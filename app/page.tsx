@@ -1,27 +1,34 @@
-import Image from "next/image";
 import { SignInButton, SignUpButton } from "@clerk/nextjs";
+import AuthenticationButtonStyling from "@/components/common/authenticationButtonStyling";
 
 export default function Home() {
   return (
-    <main className="h-full flex gap-4 flex-col items-center align-items-center p-24">
-      <h1>This is the landing page</h1>
-      <div className="flex p-5">
-        <div className="border border-pink-500 bg-cyan-700 text-cyan-100 rounded-xl m-5 p-2">
+    <main className="h-full w-full grid grid-rows-12 gap-4 items-center justify-items-center p-4">
+      <div className="row-span-2 flex items-center justify-center w-full">
+        <h1 className="text-2xl text-center">Welcome to Fitness Finesse</h1>
+      </div>
+      <div className="row-span-8 grid grid-rows-3 gap-4 size-full">
+        <div className="row-span-1 bg-blue-200 p-5">Content 1</div>
+        <div className="row-span-1 bg-blue-300 p-5">Content 2</div>
+        <div className="row-span-1 bg-blue-400 p-5">Content 3</div>
+      </div>
+      <div className="row-span-2 flex justify-center p-5 w-full">
+        <AuthenticationButtonStyling>
           <SignInButton
             fallbackRedirectUrl="/dashboard"
             signUpFallbackRedirectUrl="/onboarding"
           >
-            Sign in
+            Log in
           </SignInButton>
-        </div>
-        <div className="border border-pink-500 bg-cyan-700 text-cyan-100 rounded-xl m-5 p-2">
+        </AuthenticationButtonStyling>
+        <AuthenticationButtonStyling>
           <SignUpButton
             signInFallbackRedirectUrl="/dashboard"
             fallbackRedirectUrl="/onboarding"
           >
             Sign up
           </SignUpButton>
-        </div>
+        </AuthenticationButtonStyling>
       </div>
     </main>
   );
