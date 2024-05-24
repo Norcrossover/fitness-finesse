@@ -6,8 +6,9 @@ const SocialIcons = ({ icons }) => {
       {icons.map((icon) => (
         <span
           key={icon.name}
-          className="cursor-pointer inline-flex p-1 md:p-2 items-center rounded-full bg-[#ffffff20] mx-1.5 hover:text-gray-100 hover:bg-cyan-400 duration-300"
+          className="mt-1 sm:mt-0 cursor-pointer inline-flex p-1 md:p-2 items-center rounded-full bg-[#ffffff20] mx-1.5 hover:text-gray-100 hover:bg-cyan-400 duration-300"
         >
+          {/* Temp icons for now, the social icons are deprecated for lucide-react */}
           <icon.icon />
         </span>
       ))}

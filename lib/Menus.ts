@@ -32,7 +32,7 @@ export const SUPPORT = [
   },
 ];
 
-export const SOCIAL = [
+export const SOCIALS = [
   { name: "X", link: "#", icon: X },
   { name: "X", link: "#", icon: X },
   { name: "X", link: "#", icon: X },

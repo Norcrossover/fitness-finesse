@@ -1,7 +1,7 @@
 import { PersonStanding } from "lucide-react";
 import ItemsContainer from "./ItemsContainer";
 import SocialIcons from "./SocialIcons";
-import { SOCIAL } from "@/lib/Menus";
+import { SOCIALS } from "@/lib/Menus";
 
 const Footer = () => {
   return (
@@ -18,12 +18,16 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-10 text-center py-4 text-sm dark:text-slate-50 w-full">
           <p>PSU CS-464</p>
           <p>
+            {/* Might consider changing this */}
             @2024. Created by{" "}
-            <span className="text-cyan-400 font-semibold">Victor Castro</span>{" "}
+            <span className="text-cyan-400 font-semibold">
+              Victor Castro
+            </span>{" "}
             and{" "}
             <span className="text-cyan-400 font-semibold">Kobe Norcross </span>
           </p>
-          <SocialIcons icons={SOCIAL} />
+          {/* From Menu.ts */}
+          <SocialIcons icons={SOCIALS} />
         </div>
       </footer>
     </>
