@@ -23,9 +23,7 @@ export default function RootLayout({
         <body
           className={`${inter.className} bg-slate-200 text-slate-900 grid grid-rows-12 divide-y divide-slate-400`}
         >
-          <div>
-            <Header />
-          </div>
+          <Header />
           <div className="row-span-11">{children}</div>
           <Footer />
         </body>

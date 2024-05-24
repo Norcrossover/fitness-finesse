@@ -7,6 +7,7 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx}", // Outside of the app folder
   ],
+  darkMode: "class",
   theme: {
     extend: {
       backgroundImage: {
