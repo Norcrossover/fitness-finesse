@@ -1,5 +1,5 @@
 "use client";
-import { PRODUCTS, RESOURCES, COMPANY, TESTING } from "@/lib/Menus";
+import { DIRECTORY, RESOURCES, ABOUT, SUPPORT } from "@/lib/Menus";
 import Link from "next/link";
 
 const Item = ({ links, title }) => {
@@ -8,7 +8,10 @@ const Item = ({ links, title }) => {
       <h3 className="mb-1 font-semibold">{title}</h3>
       {links.map((link) => (
         <li key={link.name}>
-          <Link className="text-sm leading-6" href={link.link}>
+          <Link
+            className="text-sm leading-7 hover:text-cyan-400"
+            href={link.link}
+          >
             {link.name}
           </Link>
         </li>
@@ -19,11 +22,11 @@ const Item = ({ links, title }) => {
 
 const ItemsContianer = () => {
   return (
-    <div className="dark:text-slate-50 grid grid-cols-1 sm:grid-cols-2 sm:gap-6 md:justify-center lg:grid-cols-4 lg:gap-6 sm:px-8 px-5 my-10">
-      <Item links={PRODUCTS} title="PRODUCTS" />
+    <div className="my-5 justify-items-center dark:text-slate-50 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 ">
+      <Item links={DIRECTORY} title="DIRECTORY" />
       <Item links={RESOURCES} title="RESOURCES" />
-      <Item links={COMPANY} title="COMPANY" />
-      <Item links={TESTING} title="TESTING" />
+      <Item links={ABOUT} title="ABOUT" />
+      <Item links={SUPPORT} title="SUPPORT" />
     </div>
   );
 };

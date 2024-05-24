@@ -1,24 +1,30 @@
 import { PersonStanding } from "lucide-react";
 import ItemsContainer from "./ItemsContainer";
+import SocialIcons from "./SocialIcons";
+import { SOCIAL } from "@/lib/Menus";
 
 const Footer = () => {
   return (
     <>
-      <footer className="bg-slate-800">
-        <div className="md:flex md:justify-between md:items-center sm:px-12 px-4 bg-[#ffffff25] py-7">
-          <h3 className="lg:text-2xl text-xl md:mb-0 mb-6 lg:leading-normal font-semibold md:w-2/5">
-            Created by:
-            <span className="text-cyan-400">
-              {" "}
-              Victor Castro and Kobe Norcross
-            </span>
+      <footer className="dark:bg-slate-800 bg-slate-400">
+        <div className="py-2 px-2 md:flex md:justify-between md:items-center bg-[#ffffff20] dark:text-slate-50">
+          <h3 className="lg:text-3xl sm:text-2xl text-xl md:mb-0 mb-4 font-semibold  p-2">
+            Be The Change <span className="text-cyan-400">You </span>Want To{" "}
+            <span className="text-cyan-400">See </span>
           </h3>
-          <p className="">
-            To fulfill the requirements of the Portland State University
-            Frontend Web Development Computer Science Course.
-          </p>
         </div>
         <ItemsContainer />
+        <hr></hr>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-10 text-center py-4 text-sm dark:text-slate-50 w-full">
+          <p>PSU CS-464</p>
+          <p>
+            @2024. Created by{" "}
+            <span className="text-cyan-400 font-semibold">Victor Castro</span>{" "}
+            and{" "}
+            <span className="text-cyan-400 font-semibold">Kobe Norcross </span>
+          </p>
+          <SocialIcons icons={SOCIAL} />
+        </div>
       </footer>
     </>
   );
