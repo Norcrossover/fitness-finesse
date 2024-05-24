@@ -2,32 +2,31 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
-import ThemeToggle from "./ThemeToggle";
 
 const NavLinks = () => {
   return (
     <>
       <Link
-        className="hover:text-gray-200 hover:border-b-2 hover:border-gray-200"
+        className="dark:text-slate-200 dark:hover:border-b-2 dark:hover:border-white hover:border-b-2 hover:border-black"
         href="/dashboard/motivation"
       >
         Motivation
       </Link>
       <Link
-        className="hover:text-gray-200 hover:border-b-2 hover:border-gray-200"
-        href="/dashboard/motivation"
+        className="dark:text-slate-200 dark:hover:border-b-2 dark:hover:border-white hover:border-b-2 hover:border-black"
+        href="/dashboard/journal"
       >
         Journal
       </Link>
       <Link
-        className="hover:text-gray-200 hover:border-b-2 hover:border-gray-200"
-        href="/dashboard/motivation"
+        className="dark:text-slate-200 dark:hover:border-b-2 dark:hover:border-white hover:border-b-2 hover:border-black"
+        href="/dashboard/logger"
       >
         Logger
       </Link>
       <Link
-        className="hover:text-gray-200 hover:border-b-2 hover:border-gray-200"
-        href="/dashboard/motivation"
+        className="dark:text-slate-200 dark:hover:border-b-2 dark:hover:border-white hover:border-b-2 hover:border-black"
+        href="/dashboard/planner"
       >
         Workout Planner
       </Link>
@@ -47,7 +46,6 @@ const NavBar = () => {
       <nav className="w-9/12 flex justify-end">
         <div className="hidden sm:flex w-full justify-between">
           <NavLinks />
-          <ThemeToggle />
         </div>
         <div className="sm:hidden">
           <button onClick={toggleNavBar}>{isOpen ? <X /> : <Menu />}</button>
