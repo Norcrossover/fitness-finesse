@@ -24,9 +24,9 @@ const ThemeToggle = () => {
   return (
     <div
       onClick={() => SetDarkMode(!darkMode)}
-      className="hidden sm:w-14 md:w-16 lg:w-20 h-8 relative sm:flex items-center p-1 dark:bg-black bg-teal-400 cursor-pointer rounded-full"
+      className="hidden sm:w-14 md:w-16 lg:w-20 h-8 relative sm:flex items-center p-1 dark:bg-slate-950 bg-cyan-400 cursor-pointer rounded-full"
     >
-      <Moon className="text-white" size={18} fill="white" />
+      <Moon className="text-white" size={20} fill="white" />
       <div
         className={clsx(
           "absolute bg-gray-100 dark:bg-white w-6 h-6 rounded-full transform transition-transform duration-300",
@@ -36,7 +36,7 @@ const ThemeToggle = () => {
           }
         )}
       ></div>
-      <Sun className="ml-auto text-yellow-300" fill="yellow" size={18} />
+      <Sun className="ml-auto text-yellow-300" fill="yellow" size={20} />
     </div>
   );
 };

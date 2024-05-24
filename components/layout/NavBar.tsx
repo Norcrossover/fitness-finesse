@@ -7,25 +7,25 @@ const NavLinks = () => {
   return (
     <>
       <Link
-        className="dark:text-slate-200 dark:hover:border-b-2 dark:hover:border-white hover:border-b-2 hover:border-black"
+        className="dark:text-slate-50 dark:hover:border-b-2 dark:hover:border-white hover:border-b-2 hover:border-black"
         href="/dashboard/motivation"
       >
         Motivation
       </Link>
       <Link
-        className="dark:text-slate-200 dark:hover:border-b-2 dark:hover:border-white hover:border-b-2 hover:border-black"
+        className="dark:text-slate-50 dark:hover:border-b-2 dark:hover:border-white hover:border-b-2 hover:border-black"
         href="/dashboard/journal"
       >
         Journal
       </Link>
       <Link
-        className="dark:text-slate-200 dark:hover:border-b-2 dark:hover:border-white hover:border-b-2 hover:border-black"
+        className="dark:text-slate-50 dark:hover:border-b-2 dark:hover:border-white hover:border-b-2 hover:border-black"
         href="/dashboard/logger"
       >
         Logger
       </Link>
       <Link
-        className="dark:text-slate-200 dark:hover:border-b-2 dark:hover:border-white hover:border-b-2 hover:border-black"
+        className="dark:text-slate-50 dark:hover:border-b-2 dark:hover:border-white hover:border-b-2 hover:border-black"
         href="/dashboard/planner"
       >
         Workout Planner

@@ -6,7 +6,6 @@ const Logo = () => {
       <button>
         <Link href="/">
           <img
-            className="bg-gray-400"
             src="/MachampLogo.svg"
             alt="Fitness Finesse Logo of Machamp Pokemon"
           />
