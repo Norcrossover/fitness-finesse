@@ -6,7 +6,7 @@ const SocialIcons = ({ icons }) => {
       {icons.map((icon) => (
         <span
           key={icon.name}
-          className="cursor-pointer inline-flex p-2 items-center rounded-full bg-[#ffffff20] mx-1.5 hover:text-gray-100 hover:bg-cyan-400 duration-300"
+          className="cursor-pointer inline-flex p-1 md:p-2 items-center rounded-full bg-[#ffffff20] mx-1.5 hover:text-gray-100 hover:bg-cyan-400 duration-300"
         >
           <icon.icon />
         </span>

@@ -8,7 +8,7 @@ const Footer = () => {
     <>
       <footer className="dark:bg-slate-800 bg-slate-400">
         <div className="py-2 px-2 md:flex md:justify-between md:items-center bg-[#ffffff20] dark:text-slate-50">
-          <h3 className="lg:text-3xl sm:text-2xl text-xl md:mb-0 mb-4 font-semibold  p-2">
+          <h3 className="text-center lg:text-3xl sm:text-2xl text-xl md:mb-0 font-semibold  py-2">
             Be The Change <span className="text-cyan-400">You </span>Want To{" "}
             <span className="text-cyan-400">See </span>
           </h3>
