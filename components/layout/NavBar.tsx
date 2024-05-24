@@ -1,7 +1,8 @@
 "use client";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Link from "next/link";
+import { ThemeContext } from "./ThemeToggle"; // Check the current theme to apply conditional styling
 
 const NavLinks = () => {
   return (
@@ -35,6 +36,7 @@ const NavLinks = () => {
 };
 
 const NavBar = () => {
+  const darkMode = useContext(ThemeContext);
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleNavBar = () => {
@@ -48,7 +50,16 @@ const NavBar = () => {
           <NavLinks />
         </div>
         <div className="sm:hidden">
-          <button onClick={toggleNavBar}>{isOpen ? <X /> : <Menu />}</button>
+          <button onClick={toggleNavBar}>
+            {isOpen ? (
+              <X size={35} className={darkMode ? "text-white" : "text-black"} />
+            ) : (
+              <Menu
+                size={35}
+                className={darkMode ? "text-white" : "text-black"}
+              />
+            )}
+          </button>
         </div>
       </nav>
       {isOpen && (

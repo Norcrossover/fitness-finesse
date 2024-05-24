@@ -1,14 +1,16 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, createContext, useContext } from "react"; // This helps with sharing data, in this case the theme
 import { Sun, Moon } from "lucide-react";
 import clsx from "clsx";
 
-const ThemeToggle = () => {
-  const [darkMode, SetDarkMode] = useState(true);
+const ThemeContext = createContext();
+
+export const ThemeProvider = ({ children }) => {
+  const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
     const theme = localStorage.getItem("theme");
-    if (theme === "dark") SetDarkMode(true);
+    if (theme === "dark") setDarkMode(true);
   }, []);
 
   useEffect(() => {
@@ -22,8 +24,18 @@ const ThemeToggle = () => {
   }, [darkMode]);
 
   return (
+    <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
+
+const ThemeToggle = () => {
+  const { darkMode, setDarkMode } = useContext(ThemeContext);
+
+  return (
     <div
-      onClick={() => SetDarkMode(!darkMode)}
+      onClick={() => setDarkMode(!darkMode)}
       className="hidden sm:w-14 md:w-16 lg:w-20 h-8 relative sm:flex items-center p-1 dark:bg-slate-950 bg-cyan-400 cursor-pointer rounded-full"
     >
       <Moon className="text-white" size={20} fill="white" />
@@ -42,3 +54,4 @@ const ThemeToggle = () => {
 };
 
 export default ThemeToggle;
+export { ThemeContext };
