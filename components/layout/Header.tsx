@@ -1,26 +1,15 @@
-"use client"; // Transform to a client component to use useState
-import React, { useState } from "react";
 import Logo from "./Logo";
 import NavBar from "./NavBar";
-import Hamburger from "./Hamburger";
-import Close from "./Close";
+import ThemeToggle from "./ThemeToggle";
 
-export default function Header() {
-  const [isOpen, setIsOpen] = useState(false); // Controls the hamburger state
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
+const Header = () => {
   return (
-    <header className="flex justify-between items-center p-5">
-      {/* Render both components. The div is 1 of 2 solutions for spacing */}
+    <header className="bg-opacity-80 backdrop-blur-lg backdrop-brightness-100 dark:bg-slate-800 dark:bg-opacity-80 bg-slate-400 sticky top-0 z-20 mx-auto flex flex-wrap w-full items-center justify-between p-4">
       <Logo />
-      <div className="flex-grow"></div>
-      <NavBar isOpen={isOpen} />
-      {/* Render Hamburger conditionally */}
-      {!isOpen && <Hamburger handleMenu={toggleMenu} />}
-      {isOpen && <Close handleMenu={toggleMenu} />}
+      <ThemeToggle />
+      <NavBar />
     </header>
   );
-}
+};
+
+export default Header;

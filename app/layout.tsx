@@ -4,6 +4,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
+import { ThemeProvider } from "@/components/layout/ThemeToggle";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,18 +19,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body
-          className={`${inter.className} bg-slate-200 text-slate-900 grid grid-rows-12 divide-y divide-slate-400`}
-        >
-          <div>
+    <ThemeProvider>
+      <ClerkProvider>
+        <html lang="en">
+          <body
+            className={`${inter.className} bg-slate-200 text-slate-900 grid grid-rows-12 divide-y divide-slate-400`}
+          >
             <Header />
-          </div>
-          <div className="row-span-11">{children}</div>
-          <Footer />
-        </body>
-      </html>
-    </ClerkProvider>
+            <div className="row-span-11">{children}</div>
+            <Footer />
+          </body>
+        </html>
+      </ClerkProvider>
+    </ThemeProvider>
   );
 }
