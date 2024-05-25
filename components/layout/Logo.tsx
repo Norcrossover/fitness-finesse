@@ -1,15 +1,18 @@
 import Link from "next/link";
 
-export default function Logo() {
+const Logo = () => {
   return (
-    <button>
-      <Link href="/">
-        <img
-          src="/dumbbell.svg"
-          alt="Outlined dumbbell logo"
-          className="w-10 h-10 ml-8 cursor-pointer transition-transform duration-300 hover:scale-110 hover:filter hover:invert"
-        />
-      </Link>
-    </button>
+    <div className="h-12 w-12">
+      <button>
+        <Link href="/">
+          <img
+            src="/MachampLogo.svg"
+            alt="Fitness Finesse Logo of Machamp Pokemon"
+          />
+        </Link>
+      </button>
+    </div>
   );
-}
+};
+
+export default Logo;

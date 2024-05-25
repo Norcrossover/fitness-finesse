@@ -1,68 +1,73 @@
+"use client";
+import { Menu, X } from "lucide-react";
+import { useState, useContext } from "react";
 import Link from "next/link";
-import React from "react";
-import clsx from "clsx";
+import { ThemeContext } from "./ThemeToggle"; // Check the current theme to apply conditional styling
 
-interface NavBarProps {
-  isOpen: boolean;
-}
-
-interface NavLinksProps {
-  isOpen: boolean;
-}
-
-const NavLinks: React.FC<NavLinksProps> = ({ isOpen }) => {
+const NavLinks = () => {
   return (
-    <ul
-      className={clsx(
-        "sm:flex sm:gap-7 md:font-medium md:gap-10 lg:gap-20 xl:text-lg xl:gap-28",
-        {
-          hidden: !isOpen,
-          "flex flex-col items-center justify-center gap-1 sm:hidden": isOpen,
-        }
+    <>
+      <Link
+        className="dark:text-slate-50 dark:hover:border-b-2 dark:hover:border-white hover:border-b-2 hover:border-black"
+        href="/dashboard/motivation"
+      >
+        Motivation
+      </Link>
+      <Link
+        className="dark:text-slate-50 dark:hover:border-b-2 dark:hover:border-white hover:border-b-2 hover:border-black"
+        href="/dashboard/journal"
+      >
+        Journal
+      </Link>
+      <Link
+        className="dark:text-slate-50 dark:hover:border-b-2 dark:hover:border-white hover:border-b-2 hover:border-black"
+        href="/dashboard/logger"
+      >
+        Logger
+      </Link>
+      <Link
+        className="dark:text-slate-50 dark:hover:border-b-2 dark:hover:border-white hover:border-b-2 hover:border-black"
+        href="/dashboard/planner"
+      >
+        Workout Planner
+      </Link>
+    </>
+  );
+};
+
+const NavBar = () => {
+  const darkMode = useContext(ThemeContext);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleNavBar = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <>
+      <nav className="w-9/12 flex justify-end">
+        <div className="hidden sm:flex w-full justify-between">
+          <NavLinks />
+        </div>
+        <div className="sm:hidden">
+          <button onClick={toggleNavBar}>
+            {isOpen ? (
+              <X size={35} className={darkMode ? "text-white" : "text-black"} />
+            ) : (
+              <Menu
+                size={35}
+                className={darkMode ? "text-white" : "text-black"}
+              />
+            )}
+          </button>
+        </div>
+      </nav>
+      {isOpen && (
+        <div className="flex gap-1 flex-col items-center basis-full">
+          <NavLinks />
+        </div>
       )}
-    >
-      <li>
-        <Link
-          className="hover:text-slate-50 hover:border-b-2"
-          href="/dashboard/motivation"
-        >
-          Motivation
-        </Link>
-      </li>
-      <li>
-        <Link
-          className="hover:text-slate-50 hover:border-b-2"
-          href="/dashboard/journal"
-        >
-          Journal
-        </Link>
-      </li>
-      <li>
-        <Link
-          className="hover:text-slate-50 hover:border-b-2"
-          href="/dashboard/logger"
-        >
-          Logger
-        </Link>
-      </li>
-      <li>
-        <Link
-          className="hover:text-slate-50 hover:border-b-2"
-          href="/dashboard/planner"
-        >
-          Workout Planner
-        </Link>
-      </li>
-    </ul>
+    </>
   );
 };
-
-const NavBar: React.FC<NavBarProps> = ({ isOpen }) => {
-  return (
-    <nav>
-      <NavLinks isOpen={isOpen} />
-    </nav>
-  );
-};
-
 export default NavBar;
