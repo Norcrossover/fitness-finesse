@@ -29,22 +29,27 @@ const FetchExercises = () => {
 
 const Dashboard = () => {
   const {data, loading, error} = FetchExercises();
-  console.log(data);
-  const exerciseNameList: [] = data ? data.map((exercise: { name: any; }) => exercise.name) : [];
-  console.log(exerciseNameList);
+  // console.log(data);
+  // const exerciseNameList: [] = data ? data.map((exercise: { name: any; }) => exercise.name) : [];
+  // console.log(exerciseNameList);
 
   
   return (
-    <>
-    <h1>Exercise Page</h1>
     <div>
-      {exerciseNameList.map(exerciseName =>
-        <Card imgSrc={""} imgAlt={""}>
-          <h2>{exerciseName}</h2>
-        </Card>
-    )}
+      <h1 className="text-center text-2xl p-2 m-2">Exercise Page</h1>
+      <div className="grid grid-cols-4 gap-4">
+        {data && data.map((exercise) => (
+          exercise.description && 
+          <Card key={exercise.id} imgSrc={""} imgAlt={""}>
+            <h2 className="font-semibold p-1 m-1">{exercise.name || "No name available"}</h2>
+            <p className="p-1 m-1 text-sm">{exercise.description || "No description available"}</p>
+          </Card>
+        
+        )
+      )}
+      </div>
     </div>
-    </>
+
   );
 };
 
