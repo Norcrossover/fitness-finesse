@@ -9,6 +9,12 @@ const NavLinks = () => {
     <>
       <Link
         className="dark:text-slate-50 dark:hover:border-b-2 dark:hover:border-white hover:border-b-2 hover:border-black"
+        href="/dashboard/exercises"
+      >
+        Exercises
+      </Link>
+      <Link
+        className="dark:text-slate-50 dark:hover:border-b-2 dark:hover:border-white hover:border-b-2 hover:border-black"
         href="/dashboard/motivation"
       >
         Motivation
