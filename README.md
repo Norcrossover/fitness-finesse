@@ -43,46 +43,49 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 - **Purpose**: Contains all Next.js pages and API routes.
 - **Contents**:
-  - `/api`: API routes handling backend logic.
-    - `auth.ts`: Authentication routes.
-    - `workouts.ts`: CRUD operations for workout management.
-  - `_app.tsx`: Custom App component, setups up page transitions and layout.
-  - `index.tsx`: Home page of the application.
-  - `dashboard.tsx`: User dashboard displaying workout logs and progress.
+  - `/dashboard`
+    - `layout.tsx` - dashboard and children's layout
+    - `page.tsx` - dashboard page
+    - `/workout`
+      - `page.tsx`
+    - `/logger`
+      - `page.tsx`
+    - `/motivation`
+      - `page.tsx`
+    - `/planner`
+      - `page.tsx`
+  - `/sign-in` - sign in page
+    - `[[...sign-in]]`
+      - `page.tsx`
+  - `/sign-up` - sign up page
+    - `[[...sign-up]]`
+      - `page.tsx`
+  - `/api`
+    - `wger.tsx`
+  - `layout.tsx` - landing page layout
+  - `page.tsx` - landing page
+  - `globals.css` - for the VERY RARE case that we need manual CSS, tailwind should handle all of our cases though
 
 #### /public
 
 - Contains static files like images and fonts.
 
-#### /styles
-
-- Stores global style files, CSS or Sass.
-
 #### /components
 
-- React components used throughout the application.
-  - `Layout.tsx`: Main layout component that wraps around the app.
-  - `Navbar.tsx`: Navigation bar for easy navigation across the application.
+- `/common` - this is where common components that can be used anywhere can be stored. For example, buttons.
+- `/features` - this is where components that are used in a specific feature could be created
+- `/layout` - these are components specific to layout such as the NavBar or a Header
 
 #### /lib
 
-- Reusable libraries and utilities.
+- Reusable libraries and utilities usually in the context of the DataBase.
   - `dbConnect.ts`: Utility for MongoDB connection handling.
-  - `session.ts`: Manages user sessions.
 
 #### /models
 
 - Mongoose models for structuring MongoDB documents.
   - `userModel.ts`: Schema definition for users.
   - `workoutModel.ts`: Schema definition for workouts.
-
-#### /hooks
-
-- Custom React hooks for shared logic across components.
-
-#### /context
-
-- React context for state management across components, if needed.
 
 #### Configuration and Miscellaneous Files
 
@@ -91,3 +94,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - `tsconfig.json`: Configuration file for TypeScript compiler options.
 - `package.json`: Manages project dependencies and scripts.
 - `README.md`: Detailed documentation of the project setup and instructions.
+- `middleware.ts`: Specific
+
+## Schemas
+
+- `User.ts`: A user profile
+- `Exercise.ts`: Specific exercise from WGER
+- `WorkoutLog.ts`: An entire workout log for a specific day
+- `Workout.ts`: A specific workout within a workout log. For example, Bench press for 4 sets for 5 reps
