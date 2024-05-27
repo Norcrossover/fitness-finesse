@@ -27,9 +27,13 @@ export default function RootLayout({
             className={`${inter.className} bg-slate-200 text-slate-900 grid grid-rows-12 divide-y divide-slate-400`}
           >
             <Axe />
-            <Header />
-            <div className="row-span-11">{children}</div>
-            <Footer />
+            <div className="row-span-1">
+              <Header />
+            </div>
+            <div className="row-span-10">{children}</div>
+            <div className="row-span-1">
+              <Footer />
+            </div>
           </body>
         </html>
       </ClerkProvider>
