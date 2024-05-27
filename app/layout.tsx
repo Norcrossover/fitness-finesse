@@ -23,17 +23,13 @@ export default function RootLayout({
     <ThemeProvider>
       <ClerkProvider>
         <html lang="en">
+          <Axe />
           <body
-            className={`${inter.className} bg-slate-200 text-slate-900 grid grid-rows-12 divide-y divide-slate-400`}
+            className={`${inter.className} bg-slate-200 text-slate-900 flex-col divide-y divide-slate-400 h-full h-dvh max-h-dvh`}
           >
-            <Axe />
-            <div className="row-span-1">
-              <Header />
-            </div>
-            <div className="row-span-10">{children}</div>
-            <div className="row-span-1">
-              <Footer />
-            </div>
+            <Header />
+            <div className="flex-grow">{children}</div>
+            <Footer />
           </body>
         </html>
       </ClerkProvider>
