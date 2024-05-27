@@ -19,6 +19,15 @@ body {
   padding: 0;
 }
 
+/********** Tailwind utility classes **********/
+.nav-links {
+  @apply dark:text-slate-50 dark:hover:border-white dark:hover:border-b-2 hover:border-b-2 hover:border-black;
+}
+
+.text-cyan {
+  @apply text-cyan-400 font-semibold;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

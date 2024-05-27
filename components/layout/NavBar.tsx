@@ -7,34 +7,19 @@ import { ThemeContext } from "./ThemeToggle"; // Check the current theme to appl
 const NavLinks = () => {
   return (
     <>
-      <Link
-         className="dark:hover:border-b-2 dark:hover:border-white hover:border-b-2 hover:border-black"
-        href="/dashboard/exercises"
-      >
+      <Link className="nav-links" href="/dashboard/exercises">
         Exercises
       </Link>
-      <Link
-        className="dark:hover:border-b-2 dark:hover:border-white hover:border-b-2 hover:border-black"
-        href="/dashboard/motivation"
-      >
+      <Link className="nav-links" href="/dashboard/motivation">
         Motivation
       </Link>
-      <Link
-        className="dark:hover:border-b-2 dark:hover:border-white hover:border-b-2 hover:border-black "
-        href="/dashboard/journal"
-      >
+      <Link className="nav-links " href="/dashboard/journal">
         Journal
       </Link>
-      <Link
-        className="dark:hover:border-b-2 dark:hover:border-white hover:border-b-2 hover:border-black "
-        href="/dashboard/logger"
-      >
+      <Link className="nav-links" href="/dashboard/logger">
         Logger
       </Link>
-      <Link
-        className="dark:hover:border-b-2 dark:hover:border-white hover:border-b-2 hover:border-black"
-        href="/dashboard/planner"
-      >
+      <Link className="nav-links" href="/dashboard/planner">
         Workout Planner
       </Link>
     </>
@@ -52,7 +37,7 @@ const NavBar = () => {
   return (
     <>
       <nav className="w-9/12 flex justify-end">
-        <div className="hidden sm:flex w-full justify-between dark:text-slate-50">
+        <div className="hidden sm:flex w-full justify-between">
           <NavLinks />
         </div>
         <div className="sm:hidden">

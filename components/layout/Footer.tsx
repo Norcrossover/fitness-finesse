@@ -8,10 +8,10 @@ const Footer = () => {
     <>
       <footer className="dark:bg-slate-800 bg-slate-400">
         <div className="py-2 px-2 md:flex md:justify-between md:items-center bg-[#ffffff20] dark:text-slate-50">
-          <h3 className="text-center lg:text-3xl sm:text-2xl text-xl md:mb-0 font-semibold  py-2">
-            Be The Change <span className="text-cyan-400">You </span>Want To{" "}
-            <span className="text-cyan-400">See </span>
-          </h3>
+          <h2 className="text-center lg:text-3xl sm:text-2xl text-xl md:mb-0   py-2">
+            Be The Change <span className="text-cyan">You </span>Want To{" "}
+            <span className="text-cyan">See </span>
+          </h2>
         </div>
         <ItemsContainer />
         <hr></hr>
@@ -19,12 +19,10 @@ const Footer = () => {
           <p>PSU CS-464</p>
           <p>
             {/* Might consider changing this */}
-            @2024. Created by{" "}
-            <span className="text-cyan-400 font-semibold">
+            @2024. Created by <span className="text-cyan">
               Victor Castro
             </span>{" "}
-            and{" "}
-            <span className="text-cyan-400 font-semibold">Kobe Norcross </span>
+            and <span className="text-cyan">Kobe Norcross </span>
           </p>
           {/* From Menu.ts */}
           <SocialIcons icons={SOCIALS} />
