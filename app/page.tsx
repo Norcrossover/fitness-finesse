@@ -1,5 +1,22 @@
 import { SignInButton, SignUpButton } from "@clerk/nextjs";
 import AuthenticationButtonStyling from "@/components/common/authenticationButtonStyling";
+import React from "react";
+
+// determines if on client or server side
+const isServerSideRendered = () => {
+  return typeof window === "undefined";
+};
+
+if (process.env.NODE_ENV !== "production" && !isServerSideRendered()) {
+  // we import react-dom and @axe-core/react dynamically
+  // so that we'll receive warning in our console about
+  // inaccessible code.
+  import("react-dom").then((ReactDOM) => {
+    import("@axe-core/react").then((axe) => {
+      axe.default(React, ReactDOM, 1000, {});
+    });
+  });
+}
 
 export default function Home() {
   return (
