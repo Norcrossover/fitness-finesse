@@ -23,7 +23,7 @@ const Item = ({ links, title }) => {
 
 const ItemsContianer = () => {
   return (
-    <div className="my-5 justify-items-center dark:text-slate-50 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+    <div className="my-5 justify-items-center dark:text-slate-50 grid grid-cols-2 sm:grid-cols-4 gap-4">
       {/* Helps map each list item for the footer */}
       <Item links={DIRECTORY} title="DIRECTORY" />
       <Item links={RESOURCES} title="RESOURCES" />

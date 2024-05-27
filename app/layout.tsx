@@ -5,6 +5,7 @@ import "./globals.css";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import { ThemeProvider } from "@/components/layout/ThemeToggle";
+import Axe from "@/components/common/Axe";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,11 +23,12 @@ export default function RootLayout({
     <ThemeProvider>
       <ClerkProvider>
         <html lang="en">
+          <Axe />
           <body
-            className={`${inter.className} bg-slate-200 text-slate-900 grid grid-rows-12 divide-y divide-slate-400`}
+            className={`${inter.className} bg-slate-200 text-slate-900 flex-col divide-y divide-slate-400 h-full h-dvh max-h-dvh`}
           >
             <Header />
-            <div className="row-span-11">{children}</div>
+            <div className="flex-grow">{children}</div>
             <Footer />
           </body>
         </html>
