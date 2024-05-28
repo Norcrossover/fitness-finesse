@@ -1,6 +1,20 @@
-import Link from "next/link";
+import { LucideIcon } from "lucide-react";
 
-const SocialIcons = ({ icons }) => {
+// Define types for props
+// For the icon component
+type IconProps = {
+  icons: LinkIcon[];
+};
+
+// For each item
+// E.g.  { name: "X", link: "#", icon: X }
+type LinkIcon = {
+  name: string;
+  link: string;
+  icon: LucideIcon;
+};
+
+const SocialIcons = ({ icons }: IconProps) => {
   return (
     <div className="text-cyan-400 ">
       {icons.map((icon) => (

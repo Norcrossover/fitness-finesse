@@ -1,3 +1,3 @@
 export default function Page() {
-    return <p>Workout planner page</p>;
-  }
+  return <p>Workout planner page</p>;
+}
