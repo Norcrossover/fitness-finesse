@@ -19,10 +19,13 @@ const Footer = () => {
           <p>PSU CS-464</p>
           <p>
             {/* Might consider changing this */}
-            @2024. Created by <span className="text-cyan">
+            @2024. Created by{" "}
+            <span className="text-cyan animate-pulse">
               Victor Castro
-            </span>{" "}
-            and <span className="text-cyan">Kobe Norcross </span>
+            </span> and{" "}
+            <span className="text-cyan animate-pulse animate">
+              Kobe Norcross{" "}
+            </span>
           </p>
           {/* From Menu.ts */}
           <SocialIcons icons={SOCIALS} />
