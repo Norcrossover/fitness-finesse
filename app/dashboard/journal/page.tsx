@@ -2,11 +2,11 @@ import Button from "@/components/common/Button";
 
 const Journal = () => {
   return (
-    <div className="container mx-auto h-screen flex flex-col items-center justify-center mt-10 gap-6">
-      <h1 className="text-4xl lg:text-5xl text-center sm:font-bold mb-6">
+    <div className="container mx-auto h-screen flex flex-col items-center justify-center mt-10 gap-10">
+      <h1 className="text-4xl lg:text-5xl text-center sm:font-bold">
         Define your future self
       </h1>
-      <div className="flex gap-6 mb-6">
+      <div className="flex flex-col sm:flex-row gap-6 sm:gap-20">
         <Button text="Goals" className="button-rounded-cyan" />
         <Button text="Reflect" className="button-rounded-cyan" />
       </div>

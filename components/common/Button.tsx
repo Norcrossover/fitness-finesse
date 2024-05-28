@@ -1,6 +1,12 @@
 "use client";
 
-const Button = ({ text, onClick = () => {}, className = "" }) => {
+type ButtonProps = {
+  text: string;
+  onClick?: () => void;
+  className?: string;
+};
+
+const Button = ({ text, onClick = () => {}, className = "" }: ButtonProps) => {
   // Make it Optional as Ts throws an error when not used
   return (
     <button onClick={onClick} className={` ${className}`}>
