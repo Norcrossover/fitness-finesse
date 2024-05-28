@@ -24,9 +24,7 @@ export default function RootLayout({
       <ClerkProvider>
         <html lang="en">
           <Axe />
-          <body
-            className={`${inter.className} flex-col divide-y divide-slate-400 h-full max-h-dvh`}
-          >
+          <body className={`${inter.className} flex flex-col h-full`}>
             <Header />
             <div className="flex-grow bg-gradient-to-b dark:from-slate-300 dark:to-slate-800 from-slate-100 to-slate-500">
               {children}

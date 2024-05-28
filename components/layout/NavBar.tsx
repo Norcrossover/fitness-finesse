@@ -10,9 +10,6 @@ const NavLinks = () => {
       <Link className="nav-links" href="/dashboard/exercises">
         Exercises
       </Link>
-      <Link className="nav-links" href="/dashboard/motivation">
-        Motivation
-      </Link>
       <Link className="nav-links " href="/dashboard/journal">
         Journal
       </Link>
