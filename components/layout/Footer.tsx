@@ -6,7 +6,7 @@ import { SOCIALS } from "@/lib/Menus";
 const Footer = () => {
   return (
     <>
-      <footer className="dark:bg-slate-800 bg-slate-400">
+      <footer className="background-theme">
         <div className="py-2 px-2 md:flex md:justify-between md:items-center bg-[#ffffff20] dark:text-slate-50">
           <h2 className="text-center lg:text-3xl sm:text-2xl text-xl md:mb-0   py-2">
             Be The Change <span className="text-cyan">You </span>Want To{" "}
