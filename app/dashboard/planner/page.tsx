@@ -7,9 +7,11 @@ const Planner = () => {
     <>
       {/* Not sure if we're going to take into account the user */}
       <h1 className="text-3xl font-bold mx-6 my-6">Good afternoon, Kobe.</h1>
-      <div className="container text-white flex flex-col items-center my-14">
-        <h2 className="text-xl font-semibold mb-4">Find a Quick Workout!</h2>
-        <div className="w-3/4">
+      <div className="container mx-auto text-white flex flex-col sm:flex-row items-center text-center justify-center my-14 gap-14">
+        <div className="w-3/4 sm:w-1/2">
+          <h2 className="text-xl font-semibold mb-4 sm:text-left">
+            Find a quick workout!
+          </h2>
           <WorkoutCategory
             title="Weight lifting"
             exercises={[
@@ -38,21 +40,25 @@ const Planner = () => {
             ]}
           />
         </div>
-        <h2 className="text-xl font-semibold mb-4 mt-10">Try Something New!</h2>
-        <form className="w-full flex justify-center">
-          <fieldset className="bg-slate-800 p-10 text-center rounded-xl w-3/4">
-            <legend className="sr-only">Try Something New</legend>
-            <FormWorkout
-              step={1}
-              title="Number of exercises"
-              label="exercises"
-            />
-            <FormWorkout step={2} title="Number of sets" label="sets" />
-            <FormWorkout step={3} title="Number of reps" label="reps" />
-            <FormWorkout step={4} title="Number of minutes" label="minutes" />
-            <Button text="Generate" className="button-rounded-cyan" />
-          </fieldset>
-        </form>
+        <div className="w-3/4 sm:w-1/2  self-start">
+          <h2 className="text-xl font-semibold mb-4 mt-10 sm:text-left">
+            Try Something New!
+          </h2>
+          <form>
+            <fieldset className="bg-slate-800 p-10 text-center rounded-xl">
+              <legend className="sr-only">Try Something New</legend>
+              <FormWorkout
+                step={1}
+                title="Number of exercises"
+                label="exercises"
+              />
+              <FormWorkout step={2} title="Number of sets" label="sets" />
+              <FormWorkout step={3} title="Number of reps" label="reps" />
+              <FormWorkout step={4} title="Number of minutes" label="minutes" />
+              <Button text="Generate" className="button-rounded-cyan mt-4" />
+            </fieldset>
+          </form>
+        </div>
       </div>
     </>
   );
