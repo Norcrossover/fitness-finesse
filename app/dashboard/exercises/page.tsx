@@ -5,7 +5,7 @@ import ExerciseCarousel from "./ExerciseCarousel";
 
 const Page: React.FC = () => {
   return (
-    <main className="h-full">
+    <main className="h-full w-full min-h-screen">
       <SignedOut>
         <RedirectToSignIn />
       </SignedOut>
