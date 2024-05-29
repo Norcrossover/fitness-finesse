@@ -22,11 +22,12 @@ const useFetchExercises = (initialUrl: string) => {
         const allData: Exercise[] = [];
         let nextUrl: string | null = url;
         // while (nextUrl) {
-        for (let i = 0; i < 2; i++) {
-          const response: ApiResponse = await axios.get<ApiResponse>(nextUrl);
+        for (let i = 0; nextUrl && i < 2; i++) {
+          const response = await axios.get<ApiResponse>(nextUrl);
           console.log(response);
-          allData.push(...response?.results);
-          nextUrl = response.next;
+          const { data } = response;
+          allData.push(...data.results);
+          nextUrl = data.next;
         }
         setData(allData);
       } catch (error) {
