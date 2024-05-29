@@ -7,7 +7,7 @@ const Planner = () => {
     <>
       {/* Not sure if we're going to take into account the user */}
       <h1 className="text-3xl font-bold mx-6 my-6">Good afternoon, Kobe.</h1>
-      <div className="container mx-auto text-white flex flex-col sm:flex-row text-center items-center sm:items-start justify-center my-14 gap-14">
+      <div className="container mx-auto text-white flex flex-col sm:flex-row text-center items-center sm:items-start justify-center my-14 gap-10">
         <div className="w-3/4 sm:w-1/2">
           <h2 className="text-xl font-semibold mb-4 sm:text-left">
             Find a quick workout!
