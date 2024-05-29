@@ -1,13 +1,6 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
-import { Exercise } from "./exerciseInterfaces";
-
-interface ApiResponse {
-  count: number;
-  next: string | null;
-  previous: string | null;
-  results: Exercise[];
-}
+import axios, { AxiosResponse } from "axios";
+import { Exercise, ApiResponse } from "./exerciseInterfaces";
 
 const useFetchExercises = (initialUrl: string) => {
   const [data, setData] = useState<Exercise[]>([]);
@@ -21,9 +14,12 @@ const useFetchExercises = (initialUrl: string) => {
       try {
         const allData: Exercise[] = [];
         let nextUrl: string | null = url;
+
+        // TODO: Uncomment if we want to query the API for the entire exercise list!
         // while (nextUrl) {
         for (let i = 0; nextUrl && i < 2; i++) {
-          const response = await axios.get<ApiResponse>(nextUrl);
+          const response: AxiosResponse<ApiResponse> =
+            await axios.get<ApiResponse>(nextUrl);
           console.log(response);
           const { data } = response;
           allData.push(...data.results);
