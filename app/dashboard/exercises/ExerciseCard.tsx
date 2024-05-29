@@ -10,7 +10,7 @@ const ExerciseCard: React.FC<Exercise> = ({
   muscles_secondary,
   license_author,
 }) => (
-  <div className="border p-4 rounded shadow">
+  <div className=" bg-slate-100 grid grid-cols-1 p-4 rounded-lg shadow-lg hover:border hover:border-cyan-500 hover:transformation hover:scale-110">
     <h2 className="font-semibold p-1 m-1">{name}</h2>
     {/* <p className="p-1 m-1 text-sm">{description}</p> */}
     {/* {image && (
