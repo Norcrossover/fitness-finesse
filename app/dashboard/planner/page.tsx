@@ -1,12 +1,28 @@
+"use client";
+import { useUser } from "@clerk/clerk-react";
+import { useRouter } from "next/navigation";
 import WorkoutCategory from "@/components/features/workout/WorkoutCategory";
 import FormWorkout from "@/components/features/workout/FormWorkout";
 import Button from "@/components/common/Button";
 
 const Planner = () => {
+  const { isSignedIn, user, isLoaded } = useUser();
+  const router = useRouter();
+
+  if (!isLoaded) return; // Wait until user loading state is determined
+
+  if (!isSignedIn) {
+    router.push("/sign-in"); // Redirect if not signed in
+  }
+
+  const userName = user?.firstName || "User"; // Determine if undefined , fallback to user
+
   return (
     <>
       {/* Not sure if we're going to take into account the user */}
-      <h1 className="text-3xl font-bold mx-6 my-6">Good afternoon, Kobe.</h1>
+      <h1 className="text-3xl text-center sm:text-left font-bold mx-auto container my-10">
+        Good afternoon, {userName}.
+      </h1>
       <div className="container mx-auto text-white flex flex-col sm:flex-row text-center items-center sm:items-start justify-center my-14 gap-10">
         <div className="w-3/4 sm:w-1/2">
           <h2 className="text-xl font-semibold mb-4 sm:text-left">
