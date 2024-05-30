@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { RedirectToSignIn, SignedIn, SignedOut } from "@clerk/nextjs";
-import ExerciseCarousel from "./ExerciseCarousel";
+import ExerciseCarousel from "../../../components/features/exercises/ExerciseCarousel";
 
 const Page: React.FC = () => {
   return (

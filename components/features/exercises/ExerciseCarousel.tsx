@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useMemo, useEffect } from "react";
+import useFetchExercises from "../../../hooks/useFetchExercises";
 import ExerciseCard from "./ExerciseCard";
-import useFetchExercises from "./useFetchExercises";
 
 const ExerciseCarousel: React.FC = () => {
   const { data, loading, error } = useFetchExercises(

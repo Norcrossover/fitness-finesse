@@ -1,7 +1,7 @@
 import React from "react";
-import { Exercise } from "./exerciseInterfaces";
+import { WgerExercise } from "../../../types/wgerExercise";
 
-const ExerciseCard: React.FC<Exercise> = ({
+const ExerciseCard: React.FC<WgerExercise> = ({
   name,
   description,
   category,
