@@ -1,5 +1,5 @@
 import React from "react";
-import { Exercise } from "../../../types/wger/Exercise";
+import { Exercise } from "../../../../types/wger/Exercise";
 
 const ExerciseCard: React.FC<Exercise> = ({
   name,
