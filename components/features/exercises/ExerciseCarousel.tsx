@@ -139,6 +139,7 @@ const ExerciseCarousel: React.FC = () => {
               uuid={""}
               exercise_base_id={0}
               created={""}
+              language={exercise.language}
             />
           ))}
         </div>

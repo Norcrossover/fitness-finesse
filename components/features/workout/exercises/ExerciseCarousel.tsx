@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useMemo, useEffect } from "react";
 import useFetchExercises from "@/hooks/useFetchExercises";
-import ExerciseCard from "./ExerciseCard";
+import ExerciseCard from "../../exercises/ExerciseCard";
 
 const ExerciseCarousel: React.FC = () => {
   const { data, loading, error } = useFetchExercises(
@@ -112,7 +112,7 @@ const ExerciseCarousel: React.FC = () => {
                 id={0}
                 name="No values were found with this search query, please try again"
                 description=""
-                category={0}
+                category={{ id: 0, name: "" }}
                 equipment={[]}
                 muscles={[]}
                 muscles_secondary={[]}

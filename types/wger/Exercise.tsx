@@ -21,15 +21,15 @@ interface Language {
 export interface Exercise {
   id: number;
   name: string;
-  aliases: string[];
-  uuid: string;
-  exercise_base_id: number;
-  description: string;
-  created: string;
+  aliases?: string[];
+  uuid?: string;
+  exercise_base_id?: number;
+  description?: string;
+  created?: string;
   category: BasicInformation;
   equipment: BasicInformation[];
   muscles: Muscle[];
   muscles_secondary: Muscle[];
-  language: Language;
-  license_author: string;
+  language?: Language;
+  license_author?: string;
 }
