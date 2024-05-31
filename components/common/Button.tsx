@@ -4,13 +4,20 @@
 type ButtonProps = {
   text: string;
   onClick?: () => void;
+  type?: "button" | "submit" | "reset";
   className?: string;
 };
 
-const Button = ({ text, onClick = () => {}, className = "" }: ButtonProps) => {
+// String is not assignable so just use default types
+const Button = ({
+  text,
+  onClick = () => {},
+  type = "button",
+  className = "",
+}: ButtonProps) => {
   // Make it Optional as Ts throws an error when not used
   return (
-    <button onClick={onClick} className={` ${className}`}>
+    <button onClick={onClick} type={type} className={` ${className}`}>
       {text}
     </button>
   );
