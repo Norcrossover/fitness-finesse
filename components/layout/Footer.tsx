@@ -6,12 +6,12 @@ import { SOCIALS } from "@/lib/Menus";
 const Footer = () => {
   return (
     <>
-      <footer className="dark:bg-slate-800 bg-slate-400">
+      <footer className="background-theme">
         <div className="py-2 px-2 md:flex md:justify-between md:items-center bg-[#ffffff20] dark:text-slate-50">
-          <h3 className="text-center lg:text-3xl sm:text-2xl text-xl md:mb-0 font-semibold  py-2">
-            Be The Change <span className="text-cyan-400">You </span>Want To{" "}
-            <span className="text-cyan-400">See </span>
-          </h3>
+          <h2 className="text-center lg:text-3xl sm:text-2xl text-xl md:mb-0   py-2">
+            Be The Change <span className="text-cyan">You </span>Want To{" "}
+            <span className="text-cyan">See </span>
+          </h2>
         </div>
         <ItemsContainer />
         <hr></hr>
@@ -20,11 +20,12 @@ const Footer = () => {
           <p>
             {/* Might consider changing this */}
             @2024. Created by{" "}
-            <span className="text-cyan-400 font-semibold">
+            <span className="text-cyan animate-pulse">
               Victor Castro
-            </span>{" "}
-            and{" "}
-            <span className="text-cyan-400 font-semibold">Kobe Norcross </span>
+            </span> and{" "}
+            <span className="text-cyan animate-pulse animate">
+              Kobe Norcross{" "}
+            </span>
           </p>
           {/* From Menu.ts */}
           <SocialIcons icons={SOCIALS} />

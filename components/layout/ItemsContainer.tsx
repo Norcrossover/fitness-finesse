@@ -2,7 +2,21 @@
 import { DIRECTORY, RESOURCES, ABOUT, SUPPORT } from "@/lib/Menus";
 import Link from "next/link";
 
-const Item = ({ links, title }) => {
+// Define types for the props
+// For the item component
+type ItemProps = {
+  links: LinkItem[];
+  title: string;
+};
+
+// For each item
+// E.g. { name: "Motivation", link: "/dashboard/motivation" }
+type LinkItem = {
+  name: string;
+  link: string;
+};
+
+const Item = ({ links, title }: ItemProps) => {
   return (
     <ul>
       <h3 className="mb-1 font-semibold">{title}</h3>
@@ -21,7 +35,7 @@ const Item = ({ links, title }) => {
   );
 };
 
-const ItemsContianer = () => {
+const ItemsContainer = () => {
   return (
     <div className="my-5 justify-items-center dark:text-slate-50 grid grid-cols-2 sm:grid-cols-4 gap-4">
       {/* Helps map each list item for the footer */}
@@ -33,4 +47,4 @@ const ItemsContianer = () => {
   );
 };
 
-export default ItemsContianer;
+export default ItemsContainer;

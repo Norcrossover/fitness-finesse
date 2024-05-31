@@ -1,45 +1,18 @@
-// lib/dbConnect.ts
 import mongoose from "mongoose";
 
-const MONGO_URI = process.env.MONGO_URI as string;
+const connectMongoDB = async () => {
+  const mongoUri = process.env.MONGO_URI;
 
-if (!MONGO_URI) {
-  throw new Error(
-    "Please define the MONGO_URI environment variable inside .env.local",
-  );
-}
-
-interface IMongooseCache {
-  conn: typeof mongoose | null;
-  promise: Promise<typeof mongoose> | null;
-}
-
-declare global {
-  var mongoose: IMongooseCache;
-}
-
-let cached = global.mongoose;
-
-if (!cached) {
-  cached = global.mongoose = { conn: null, promise: null };
-}
-
-async function dbConnect(): Promise<typeof mongoose> {
-  if (cached.conn) {
-    return cached.conn;
+  if (!mongoUri) {
+    throw new Error("MONGO_URI environment variable is not defined");
   }
 
-  if (!cached.promise) {
-    const opts = {
-      bufferCommands: false,
-    };
-
-    cached.promise = mongoose.connect(MONGO_URI, opts).then((mongoose) => {
-      return mongoose;
-    });
+  try {
+    await mongoose.connect(mongoUri);
+    console.log("Connected to MongoDB.");
+  } catch (error) {
+    console.error("Failed to connect to MongoDB:", error);
   }
-  cached.conn = await cached.promise;
-  return cached.conn;
-}
+};
 
-export default dbConnect;
+export default connectMongoDB;

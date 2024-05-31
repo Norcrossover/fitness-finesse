@@ -1,7 +1,7 @@
 // _tests_/ExerciseCarousel.test.tsx
 import React from "react";
 import { fireEvent, render } from "@testing-library/react";
-import ExerciseCarousel from "@/components/features/workout/exercises/ExerciseCarousel";
+import ExerciseCarousel from "@/components/features/exercises/ExerciseCarousel";
 import useFetchExercises from "@/hooks/useFetchExercises";
 
 // Mock the useFetchExercises hook
