@@ -22,13 +22,13 @@ const exerciseSetSchema = new Schema<ExerciseSet>({
 
 const exerciseLogSchema = new Schema<ExerciseLog>({
   name: { type: String, required: true },
-  sets: [exerciseSetSchema],
+  sets: { type: [exerciseSetSchema], required: true },
 });
 
 const workoutLogSchema = new Schema<WorkoutLog>(
   {
     userId: { type: String, required: true },
-    exerciseList: [exerciseLogSchema],
+    exerciseList: { type: [exerciseLogSchema], required: true },
   },
   {
     timestamps: true,
