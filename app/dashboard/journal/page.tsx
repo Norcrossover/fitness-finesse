@@ -7,7 +7,7 @@ const Journal = () => {
       <h1 className="text-3xl text-center font-bold">
         Define your future self
       </h1>
-      <div className="flex flex-col sm:flex-row gap-6 sm:gap-20">
+      <div className="flex flex-col sm:flex-row gap-6 sm:gap-28">
         <Button text="Goals" className="button-rounded-cyan" />
         <Button text="Reflect" className="button-rounded-cyan" />
       </div>
