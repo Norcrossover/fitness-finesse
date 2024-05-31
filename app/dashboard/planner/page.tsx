@@ -64,13 +64,33 @@ const Planner = () => {
             <fieldset className="bg-slate-800 p-10 text-center rounded-xl">
               <legend className="sr-only">Try Something New</legend>
               <FormWorkout
-                step={1}
-                title="Number of exercises"
-                label="exercises"
+                id="exercises"
+                title="Step 1: Number of exercises"
+                type="number"
+                classInput="input-workout"
+                classLabel="label-workout"
               />
-              <FormWorkout step={2} title="Number of sets" label="sets" />
-              <FormWorkout step={3} title="Number of reps" label="reps" />
-              <FormWorkout step={4} title="Number of minutes" label="minutes" />
+              <FormWorkout
+                id="sets"
+                title="Step 2: Number of sets"
+                type="number"
+                classInput="input-workout"
+                classLabel="label-workout"
+              />
+              <FormWorkout
+                id="reps"
+                title="Step 3: Number of reps"
+                type="number"
+                classInput="input-workout"
+                classLabel="label-workout"
+              />
+              <FormWorkout
+                id="minutes"
+                title="Step 4: Number of minutes"
+                type="number"
+                classInput="input-workout"
+                classLabel="label-workout"
+              />
               <Button text="Generate" className="button-rounded-cyan mt-4" />
             </fieldset>
           </form>

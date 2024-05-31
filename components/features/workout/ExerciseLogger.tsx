@@ -1,4 +1,5 @@
-import Button from "../../common/Button";
+import Button from "@/components/common/Button";
+import FormWorkout from "@/components/features/workout/FormWorkout";
 
 // For each item
 type ExerciseLoggerProps = {
@@ -8,14 +9,37 @@ type ExerciseLoggerProps = {
 
 const ExerciseLogger = ({ title, num }: ExerciseLoggerProps) => {
   return (
-    <div className="flex flex-col justify-between items-center p-2 gap-4">
-      <div className="flex items-center">
-        <span className="mr-10 p-2 outline outline-2 outline-white rounded-full text-white">
+    <div className="flex flex-col p-2 gap-5 items-center text-center">
+      <div className="flex">
+        <span className="w-10 outline outline-2 outline-white rounded-full text-white">
           {num}
         </span>
         <h3 className="text-2xl font-semibold">{title}</h3>
       </div>
-      <Button text="+ Add" className="button-rounded-cyan" />
+      <span className="flex flex-col justify-around gap-4">
+        <FormWorkout
+          id="numSets"
+          title="# of Sets"
+          type="number"
+          classInput="input-workout"
+          classLabel="label-workout"
+        />
+        <FormWorkout
+          id="numReps"
+          title="# of Reps"
+          type="number"
+          classInput="input-workout"
+          classLabel="label-workout"
+        />
+        <FormWorkout
+          id="numWeight"
+          title="# of Weight"
+          type="number"
+          classInput="input-workout"
+          classLabel="label-workout"
+        />
+      </span>
+      <Button text="+ More" className="button-rounded-cyan" />
     </div>
   );
 };
