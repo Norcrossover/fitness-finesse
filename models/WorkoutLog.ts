@@ -1,27 +1,33 @@
 import mongoose, { Schema, Document } from "mongoose";
 
-export interface ExerciseLog {
-  name: string;
+export interface ExerciseSet {
   reps: number;
-  sets: number;
   weight: number;
 }
 
+export interface ExerciseLog {
+  name: string;
+  sets: ExerciseSet[];
+}
+
 export interface WorkoutLog extends Document {
-  id: number;
+  userId: string;
   exerciseList: ExerciseLog[];
 }
 
+const exerciseSetSchema = new Schema<ExerciseSet>({
+  reps: { type: Number, required: true },
+  weight: { type: Number, required: true },
+});
+
 const exerciseLogSchema = new Schema<ExerciseLog>({
   name: { type: String, required: true },
-  reps: { type: Number, required: true },
-  sets: { type: Number, required: true },
-  weight: { type: Number, required: true },
+  sets: [exerciseSetSchema],
 });
 
 const workoutLogSchema = new Schema<WorkoutLog>(
   {
-    id: { type: Number, required: true },
+    userId: { type: String, required: true },
     exerciseList: [exerciseLogSchema],
   },
   {
