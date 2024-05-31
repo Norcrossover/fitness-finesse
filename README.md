@@ -98,7 +98,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Schemas
 
-- `User.ts`: A user profile
-- `Exercise.ts`: Specific exercise from WGER
 - `WorkoutLog.ts`: An entire workout log for a specific day
-- `Workout.ts`: A specific workout within a workout log. For example, Bench press for 4 sets for 5 reps
