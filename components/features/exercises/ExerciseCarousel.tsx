@@ -2,11 +2,13 @@
 import React, { useState, useMemo, useEffect } from "react";
 import useFetchExercises from "../../../hooks/useFetchExercises";
 import ExerciseCard from "./ExerciseCard";
+import { Skeleton } from "@mui/material";
 
 const ExerciseCarousel: React.FC = () => {
-  const { data, loading, error } = useFetchExercises(
+  let { data, loading, error } = useFetchExercises(
     "https://wger.de/api/v2/exercise/?limit=100",
   );
+  loading = true;
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [itemsPerPage, setItemsPerPage] = useState<number>(20);
@@ -87,7 +89,22 @@ const ExerciseCarousel: React.FC = () => {
     );
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <>
+        <div className="flex flex-col">
+          <div className="flex flex-col lg:flex-row justify-evenly">
+            <Skeleton className="w-5/12 h-[100px]" />
+            <Skeleton className="w-5/12 h-[100px]" />
+          </div>
+          <div className="flex justify-center gap-2">
+            <Skeleton className="px-4 py-2 h-12 top-2/4 sticky" />
+            <Skeleton className="w-11/12 h-[1000px]" />
+            <Skeleton className="px-4 py-2 h-12 top-2/4 sticky" />
+          </div>
+        </div>
+      </>
+    );
   if (error) return <p>Error loading exercises: {error.message}</p>;
 
   return (
