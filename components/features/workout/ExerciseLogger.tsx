@@ -11,7 +11,7 @@ const ExerciseLogger = ({ title, num }: ExerciseLoggerProps) => {
         <span className="w-10 outline outline-2 outline-white rounded-full text-white">
           {num}
         </span>
-        <h2 className="text-xl sm:text-3xl font-semibold">{title}</h2>
+        <h3 className="text-xl sm:text-3xl font-semibold">{title}</h3>
       </div>
     </div>
   );
