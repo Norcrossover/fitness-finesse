@@ -1,4 +1,5 @@
 import Button from "@/components/common/Button";
+import TextArea from "@/components/common/TextArea";
 
 const Journal = () => {
   return (
@@ -10,16 +11,13 @@ const Journal = () => {
         <Button text="Goals" className="button-rounded-cyan" />
         <Button text="Reflect" className="button-rounded-cyan" />
       </div>
-      <div className="sm:w-3/4">
-        <label htmlFor="entry" className="sr-only">
-          Text area for writing your goals or reflections
-        </label>
-        <textarea
+      <div className="w-3/4">
+        <TextArea
           id="entry"
-          name="entry"
-          className="w-full h-64 border border-black p-2 rounded-lg focus:outline-none focus:border-none focus:ring-2 focus:ring-cyan-400"
+          text="Text are for writing your goals or reflections"
+          className="w-full h-64 border border-black p-2 text-center rounded-xl focus:outline-none focus:border-none focus:ring-2 focus:ring-cyan-400"
           placeholder="Start writing here..."
-        ></textarea>
+        />
       </div>
     </div>
   );

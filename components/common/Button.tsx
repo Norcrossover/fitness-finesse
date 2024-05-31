@@ -1,5 +1,6 @@
 "use client";
 
+// For each item
 type ButtonProps = {
   text: string;
   onClick?: () => void;
