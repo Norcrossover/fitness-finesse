@@ -24,11 +24,11 @@ export default function RootLayout({
       <ClerkProvider>
         <html lang="en">
           <Axe />
-          <body
-            className={`${inter.className} bg-slate-200 text-slate-900 flex-col divide-y divide-slate-400 h-full h-dvh max-h-dvh`}
-          >
+          <body className={`${inter.className} flex flex-col h-full`}>
             <Header />
-            <div className="flex-grow">{children}</div>
+            <div className="flex-grow bg-gradient-to-b dark:from-slate-300 dark:to-slate-800 from-slate-100 to-slate-500">
+              {children}
+            </div>
             <Footer />
           </body>
         </html>
