@@ -5,7 +5,7 @@ import ExerciseCard from "./ExerciseCard";
 
 const ExerciseCarousel: React.FC = () => {
   const { data, loading, error } = useFetchExercises(
-    "https://wger.de/api/v2/exercise/?limit=100",
+    "https://wger.de/api/v2/exerciseinfo/?limit=100&language=2",
   );
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [currentPage, setCurrentPage] = useState<number>(0);
@@ -112,11 +112,15 @@ const ExerciseCarousel: React.FC = () => {
                 id={0}
                 name="No values were found with this search query, please try again"
                 description=""
-                category={0}
+                category={{ id: 0, name: "" }}
                 equipment={[]}
                 muscles={[]}
                 muscles_secondary={[]}
                 license_author=""
+                aliases={[]}
+                uuid={""}
+                exercise_base_id={0}
+                created={""}
               />
             </>
           )}
@@ -125,12 +129,16 @@ const ExerciseCarousel: React.FC = () => {
               key={exercise.id}
               id={exercise.id}
               name={exercise.name}
-              description={exercise.description}
+              description={exercise.description || "No description available"}
               category={exercise.category}
               equipment={exercise.equipment}
               muscles={exercise.muscles}
               muscles_secondary={exercise.muscles_secondary}
               license_author={exercise.license_author}
+              aliases={[]}
+              uuid={""}
+              exercise_base_id={0}
+              created={""}
             />
           ))}
         </div>

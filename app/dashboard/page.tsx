@@ -2,15 +2,15 @@
 import React from "react";
 import { RedirectToSignIn, SignedIn, SignedOut, useUser } from "@clerk/nextjs";
 
-function FetchData(): { data: any } {
-  throw new Error("Function not implemented.");
-}
+// function FetchData(): { data: any } {
+//   throw new Error("Function not implemented.");
+// }
 
 const Dashboard = () => {
   const { user } = useUser();
 
-  const { data } = FetchData();
-  const slate100 = "#F1F5F9";
+  // const { data } = FetchData();
+  // const slate100 = "#F1F5F9";
 
   // let languageCounts = {};
   // data.forEach((country) => {

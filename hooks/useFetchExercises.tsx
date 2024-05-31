@@ -23,7 +23,9 @@ const useFetchExercises = (initialUrl: string) => {
             await axios.get<ExerciseApiResponse>(nextUrl);
           console.log(response);
           const { data } = response;
-          allData.push(...data.results);
+          allData.push(
+            ...data.results.filter((exercise) => exercise.language.id === 2),
+          );
           nextUrl = data.next;
         }
         setData(allData);
