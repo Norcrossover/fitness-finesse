@@ -10,7 +10,7 @@ export interface ExerciseLog {
   sets: ExerciseSet[];
 }
 
-export interface WorkoutLog extends Document {
+export interface WorkoutLog {
   userId: string;
   exerciseList: ExerciseLog[];
 }

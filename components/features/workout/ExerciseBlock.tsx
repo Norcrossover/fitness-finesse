@@ -2,6 +2,7 @@ import React, { ChangeEvent } from "react";
 import FormWorkout from "@/components/features/workout/FormWorkout";
 import Button from "@/components/common/Button";
 import { ExerciseLog } from "@/models/WorkoutLog";
+import SetFields from "./SetFields";
 
 interface ExerciseBlockProps {
   exercise: ExerciseLog;
@@ -22,12 +23,12 @@ const ExerciseBlock: React.FC<ExerciseBlockProps> = ({
   addSet,
   removeSet,
 }) => {
-  const handleNameChange = (e) => {
+  const handleNameChange = (e: { target: { value: string } }) => {
     handleExerciseChange(exercise.name, e.target.value);
   };
 
   return (
-    <div className="exercise-block mb-8">
+    <div className="p-2 mb-8 flex flex-col justify-center">
       <FormWorkout
         id={`exerciseName-${exercise.name}`}
         title="Exercise Name"
@@ -35,40 +36,27 @@ const ExerciseBlock: React.FC<ExerciseBlockProps> = ({
         value={exercise.name}
         onChange={handleNameChange}
         classInput="input-workout lg:inline-block"
-        classLabel="label-workout lg:inline-block lg:mr-8 mt-8"
+        classLabel="label-workout lg:inline-block lg:mr-10 mt-8 font-semibold"
       />
       {exercise.sets.map((set, index) => (
-        <div key={index} className="sm:flex justify-around">
-          <FormWorkout
-            id={`numReps-${exercise.name}-${index}`}
-            title="# of Reps"
-            type="number"
-            value={set.reps}
-            onChange={(e) => handleSetChange(exercise.name, index, e)}
-            classInput="input-workout lg:inline-block"
-            classLabel="label-workout lg:inline-block lg:mr-8 sm:mt-8"
-          />
-          <FormWorkout
-            id={`numWeight-${exercise.name}-${index}`}
-            title="Weight (lbs)"
-            type="number"
-            value={set.weight}
-            onChange={(e) => handleSetChange(exercise.name, index, e)}
-            classInput="input-workout lg:inline-block"
-            classLabel="label-workout lg:inline-block lg:mr-8 sm:mt-8"
-          />
-        </div>
+        <SetFields
+          key={index}
+          exerciseName={exercise.name}
+          index={index}
+          set={set}
+          handleSetChange={handleSetChange}
+        />
       ))}
-      <div className="flex justify-center sm:justify-start gap-4 mt-4">
+      <div className="flex justify-center gap-4 p-2 m-4">
         <Button
-          text="+ Add Set"
+          text="+ Set"
           className="button-rounded-cyan"
           onClick={() => addSet(exercise.name)}
           type="button"
         />
         <Button
-          text="- Remove Set"
-          className="button-rounded-cyan"
+          text="- Set"
+          className="button-rounded-pink"
           onClick={() => removeSet(exercise.name)}
           type="button"
         />

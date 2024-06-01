@@ -1,23 +1,44 @@
-import React from "react";
-import FormWorkout from "./FormWorkout";
+import React, { ChangeEvent } from "react";
+import FormWorkout from "@/components/features/workout/FormWorkout";
+import { ExerciseSet } from "@/models/WorkoutLog";
 
-const SetFields = ({ exerciseId, set, handleSetChange }) => (
+interface SetFieldsProps {
+  exerciseName: string;
+  index: number;
+  set: ExerciseSet;
+  handleSetChange: (
+    exerciseName: string,
+    setIndex: number,
+    event: ChangeEvent<HTMLInputElement>,
+  ) => void;
+}
+
+const SetFields: React.FC<SetFieldsProps> = ({
+  exerciseName,
+  index,
+  set,
+  handleSetChange,
+}) => (
   <div className="sm:flex justify-around">
     <FormWorkout
-      id={`numReps-${exerciseId}-${set.id}`}
+      id={`numReps-${exerciseName}-${index}`}
       title="# of Reps"
       type="number"
       value={set.reps}
-      onChange={(e) => handleSetChange(exerciseId, set.id, e)}
+      onChange={(e: ChangeEvent<HTMLInputElement>) =>
+        handleSetChange(exerciseName, index, e)
+      }
       classInput="input-workout lg:inline-block"
       classLabel="label-workout lg:inline-block lg:mr-8 sm:mt-8"
     />
     <FormWorkout
-      id={`numWeight-${exerciseId}-${set.id}`}
+      id={`numWeight-${exerciseName}-${index}`}
       title="Weight (lbs)"
       type="number"
       value={set.weight}
-      onChange={(e) => handleSetChange(exerciseId, set.id, e)}
+      onChange={(e: ChangeEvent<HTMLInputElement>) =>
+        handleSetChange(exerciseName, index, e)
+      }
       classInput="input-workout lg:inline-block"
       classLabel="label-workout lg:inline-block lg:mr-8 sm:mt-8"
     />
