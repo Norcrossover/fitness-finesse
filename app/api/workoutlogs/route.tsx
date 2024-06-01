@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
-import { checkAuthentication } from "@/middleware";
 import connectMongoDB from "@/lib/dbConnect";
 import WorkoutLog from "@/models/WorkoutLog";
+import { getAuth } from "@clerk/nextjs/server";
 
 export async function POST(request: NextRequest) {
-  const { isAuthenticated, userId } = checkAuthentication(request);
-  if (!isAuthenticated || !userId) {
+  const { userId } = getAuth(request);
+  if (!userId) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
@@ -19,8 +19,8 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET(request: NextRequest) {
-  const { isAuthenticated, userId } = checkAuthentication(request);
-  if (!isAuthenticated || !userId) {
+  const { userId } = getAuth(request);
+  if (!userId) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 

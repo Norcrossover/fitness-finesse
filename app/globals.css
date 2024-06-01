@@ -37,7 +37,14 @@ body {
 }
 
 .button-rounded-cyan {
-  @apply bg-gradient-to-l from-cyan-100 to-cyan-500 text-white tracking-wider w-24 sm:w-32 p-2 rounded-full  hover:from-cyan-200 hover:to-cyan-700 transition duration-300;
+  @apply shadow-2xl bg-gradient-to-l from-cyan-400 to-cyan-600 text-white tracking-wider w-24 sm:w-32 p-2 rounded-full  hover:from-cyan-500 hover:to-cyan-700 transition duration-300;
+}
+.button-rounded-pink {
+  @apply shadow-2xl bg-gradient-to-l from-pink-400 to-pink-600 text-white tracking-wider w-24 sm:w-32 p-2 rounded-full  hover:from-pink-500 hover:to-pink-700 transition duration-300;
+}
+
+.button-rounded-submit {
+  @apply shadow-2xl bg-gradient-to-l from-pink-700 to-cyan-500 text-white tracking-wider w-48 sm:w-64 p-4 rounded-full  hover:from-cyan-400 hover:to-pink-400 transition duration-300;
 }
 
 .background-theme {
