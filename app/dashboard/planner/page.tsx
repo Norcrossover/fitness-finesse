@@ -1,7 +1,7 @@
 "use client";
 import { useUser } from "@clerk/clerk-react";
 import { useRouter } from "next/navigation";
-import PlannerContent from "@/components/features/planner/PlannerContent";
+import PlannerBlock from "@/components/features/planner/PlannerBlock";
 
 const Planner = () => {
   const { isSignedIn, user, isLoaded } = useUser();
@@ -20,7 +20,7 @@ const Planner = () => {
       <h1 className="text-3xl text-center sm:text-left font-bold mx-auto container my-10">
         Good afternoon, {userName}.
       </h1>
-      <PlannerContent />
+      <PlannerBlock />
     </>
   );
 };
