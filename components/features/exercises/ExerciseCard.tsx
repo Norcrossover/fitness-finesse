@@ -8,23 +8,28 @@ const ExerciseCard: React.FC<Exercise> = ({
   equipment,
   muscles,
   muscles_secondary,
-  license_author,
 }) => (
-  <div className=" bg-slate-100 grid grid-cols-1 p-4 rounded-lg shadow-lg hover:border hover:border-cyan-500 hover:transformation hover:scale-110">
+  <div className=" bg-slate-100 grid grid-cols-1 p-4 rounded-lg shadow-lg hover:border hover:border-cyan-500 hover:transformation hover:scale-110 group">
     <h2 className="font-semibold p-1 m-1">{name}</h2>
-    {/* <p className="p-1 m-1 text-sm">{description}</p> */}
-    {/* {image && (
-      <div className="relative w-full h-64 mb-4">
-        <Image src={image} alt={name} layout="fill" objectFit="cover" className="rounded"/>
-      </div>
-    )} */}
-    {/* <p className="p-1 m-1 text-sm">Category: {category}</p> */}
-    <p className="p-1 m-1 text-sm">Equipment: {equipment.join(", ")}</p>
-    <p className="p-1 m-1 text-sm">Muscles: {muscles.join(", ")}</p>
     <p className="p-1 m-1 text-sm">
-      Secondary Muscles: {muscles_secondary.join(", ")}
+      Category: {category.name || "No category provided for exercise"}
     </p>
-    {/* <p className="p-1 m-1 text-sm">License Author: {license_author}</p> */}
+    <p className="p-1 m-1 text-sm">
+      Muscles:{" "}
+      {muscles.map((muscle) => muscle.name).join(", ") ||
+        "No primary muscles provided"}
+    </p>
+    <p className="p-1 m-1 text-sm">
+      Equipment:{" "}
+      {equipment.map((item) => item.name).join(", ") ||
+        "This information is not available"}
+    </p>
+    <p className="hidden group-hover:block p-1 m-1 text-sm">
+      Secondary Muscles:{" "}
+      {muscles_secondary.map((muscle) => muscle.name).join(", ") ||
+        "No secondary muscles targeted"}
+    </p>
+    <p className="hidden group-hover:block p-1 m-1 text-sm">{description}</p>
   </div>
 );
 

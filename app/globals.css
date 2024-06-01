@@ -19,6 +19,38 @@ body {
   padding: 0;
 }
 
+/********** Tailwind utility classes **********/
+.nav-links {
+  @apply dark:text-slate-50 dark:hover:border-white dark:hover:border-b-2 hover:border-b-2 hover:border-black text-sm;
+}
+
+.text-cyan {
+  @apply text-cyan-400 font-semibold;
+}
+
+.input-workout {
+  @apply w-1/2 sm:w-2/6 p-2 rounded-xl bg-white text-black mb-6 focus:outline-none focus:ring-2 focus:ring-cyan-400;
+}
+
+.label-workout {
+  @apply sm:text-lg mb-3 block;
+}
+
+.button-rounded-cyan {
+  @apply shadow-2xl bg-gradient-to-l from-cyan-400 to-cyan-600 text-white tracking-wider w-24 sm:w-32 p-2 rounded-full  hover:from-cyan-500 hover:to-cyan-700 transition duration-300;
+}
+.button-rounded-pink {
+  @apply shadow-2xl bg-gradient-to-l from-pink-400 to-pink-600 text-white tracking-wider w-24 sm:w-32 p-2 rounded-full  hover:from-pink-500 hover:to-pink-700 transition duration-300;
+}
+
+.button-rounded-submit {
+  @apply shadow-2xl bg-gradient-to-l from-pink-700 to-cyan-500 text-white tracking-wider w-48 sm:w-64 p-4 rounded-full  hover:from-cyan-400 hover:to-pink-400 transition duration-300;
+}
+
+.background-theme {
+  @apply dark:bg-slate-800 bg-slate-400;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

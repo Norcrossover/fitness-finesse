@@ -1,11 +1,28 @@
 "use client";
-import { useEffect, useState, createContext, useContext } from "react"; // This helps with sharing data, in this case the theme
+import {
+  useEffect,
+  useState,
+  createContext,
+  useContext,
+  ReactNode,
+} from "react"; // This helps with sharing data, in this case the theme
 import { Sun, Moon } from "lucide-react";
 import clsx from "clsx";
 
-const ThemeContext = createContext();
+// I used the extension jsx instead of tsx
+// Need to define types or typescript throws an issue
+type ThemeContextType = {
+  darkMode: boolean;
+  setDarkMode: (value: boolean) => void;
+};
 
-export const ThemeProvider = ({ children }) => {
+type ThemeProviderProps = {
+  children: ReactNode;
+};
+
+const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+
+export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
@@ -31,7 +48,13 @@ export const ThemeProvider = ({ children }) => {
 };
 
 const ThemeToggle = () => {
-  const { darkMode, setDarkMode } = useContext(ThemeContext);
+  const context = useContext(ThemeContext);
+
+  if (!context) {
+    throw new Error("ERROR CODE: ThemeToggle not used in a ThemeProvider");
+  }
+
+  const { darkMode, setDarkMode } = context;
 
   return (
     <div

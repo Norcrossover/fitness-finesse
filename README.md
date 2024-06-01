@@ -94,11 +94,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - `tsconfig.json`: Configuration file for TypeScript compiler options.
 - `package.json`: Manages project dependencies and scripts.
 - `README.md`: Detailed documentation of the project setup and instructions.
-- `middleware.ts`: Specific
 
 ## Schemas
 
-- `User.ts`: A user profile
-- `Exercise.ts`: Specific exercise from WGER
 - `WorkoutLog.ts`: An entire workout log for a specific day
-- `Workout.ts`: A specific workout within a workout log. For example, Bench press for 4 sets for 5 reps
