@@ -1,8 +1,9 @@
 "use client";
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo, useEffect, useCallback } from "react";
 import useFetchExercises from "../../../hooks/useFetchExercises";
 import ExerciseCard from "./ExerciseCard";
 import { Skeleton } from "@mui/material";
+import ExerciseSearchBar from "./ExerciseSearchBar";
 
 const ExerciseCarousel: React.FC = () => {
   const { data, loading, error } = useFetchExercises(
@@ -41,30 +42,16 @@ const ExerciseCarousel: React.FC = () => {
     }
   };
 
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value);
+  const handleSearchChange = useCallback((query: string) => {
+    setSearchQuery(query);
     setCurrentPage(0);
-  };
+  }, []);
 
   const handleItemsPerPageChange = (
     e: React.ChangeEvent<HTMLSelectElement>,
   ) => {
     setItemsPerPage(Number(e.target.value));
     setCurrentPage(0);
-  };
-
-  const ExerciseSearchBar = () => {
-    return (
-      <input
-        id="ExerciseSearchBar"
-        aria-label="Exercise search bar"
-        type="text"
-        value={searchQuery}
-        onChange={handleSearchChange}
-        placeholder="Search exercises..."
-        className="p-2 m-2 border rounded hover:bg-slate-100 focus:border focus:border-cyan-500 shadow"
-      />
-    );
   };
 
   const ItemsDisplayedEditor = () => {
@@ -110,7 +97,11 @@ const ExerciseCarousel: React.FC = () => {
   return (
     <div className="h-full w-full items-center flex flex-col justify-items-center justify-center p-4">
       <div className="flex flex-col sm:flex-row">
-        <ExerciseSearchBar />
+        <ExerciseSearchBar
+          searchQuery={searchQuery}
+          onSearchChange={handleSearchChange}
+        />
+
         <ItemsDisplayedEditor />
       </div>
       <div className="flex justify-between mb-4 relative">
