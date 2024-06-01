@@ -9,7 +9,6 @@ import ExerciseLogger from "./ExerciseLogger";
 
 const WorkoutLogger = () => {
   const { getToken, userId } = useAuth(); // Destructure getToken and userId from useAuth
-  const [workoutName, setWorkoutName] = useState<string>("");
   const [exercises, setExercises] = useState<ExerciseLog[]>([
     { name: "", sets: [{ reps: 0, weight: 0 }] },
   ]);
@@ -89,7 +88,6 @@ const WorkoutLogger = () => {
   };
 
   const clearFormFields = () => {
-    setWorkoutName("");
     setExercises([{ name: "", sets: [{ reps: 0, weight: 0 }] }]);
   };
 
@@ -102,7 +100,7 @@ const WorkoutLogger = () => {
     }
   };
 
-  const handleSubmit = (event: { preventDefault: () => void }): void => {
+  const handleSubmit = async (event: { preventDefault: () => void }): void => {
     event.preventDefault();
 
     if (!userId) {
@@ -120,7 +118,7 @@ const WorkoutLogger = () => {
         })),
       })),
     };
-    submitWorkoutLog(workoutLog);
+    await submitWorkoutLog(workoutLog);
   };
 
   return (
