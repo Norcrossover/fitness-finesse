@@ -4,7 +4,7 @@ const Logo = () => {
   return (
     <div className="h-12 w-12">
       <button>
-        <Link href="/">
+        <Link href="/dashboard">
           <img
             src="/MachampLogo.svg"
             alt="Fitness Finesse Logo of Machamp Pokemon"

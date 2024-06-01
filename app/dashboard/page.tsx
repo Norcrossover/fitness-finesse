@@ -2,38 +2,8 @@
 import React from "react";
 import { RedirectToSignIn, SignedIn, SignedOut, useUser } from "@clerk/nextjs";
 
-// function FetchData(): { data: any } {
-//   throw new Error("Function not implemented.");
-// }
-
 const Dashboard = () => {
   const { user } = useUser();
-
-  // const { data } = FetchData();
-  // const slate100 = "#F1F5F9";
-
-  // let languageCounts = {};
-  // data.forEach((country) => {
-  //   if (country.official_languages) {
-  //     country.official_languages.forEach((language) => {
-  //       if (languageCounts[language]) {
-  //         languageCounts[language]++;
-  //       } else {
-  //         languageCounts[language] = 1;
-  //       }
-  //     });
-  //   }
-  // });
-
-  // const chartData = {
-  //   labels: Object.keys(languageCounts),
-  //   datasets: [
-  //     {
-  //       label: "Language",
-  //       data: Object.values(languageCounts),
-  //     },
-  //   ],
-  // };
 
   return (
     <div>

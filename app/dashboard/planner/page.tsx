@@ -1,7 +1,7 @@
 "use client";
-import { useUser } from "@clerk/clerk-react";
 import { useRouter } from "next/navigation";
 import PlannerBlock from "@/components/features/planner/PlannerBlock";
+import { RedirectToSignIn, SignedIn, SignedOut, useUser } from "@clerk/nextjs";
 
 const Planner = () => {
   const { isSignedIn, user, isLoaded } = useUser();
@@ -17,10 +17,15 @@ const Planner = () => {
 
   return (
     <>
-      <h1 className="text-3xl text-center sm:text-left font-bold mx-auto container my-10">
-        Good afternoon, {userName}.
-      </h1>
-      <PlannerBlock />
+      <SignedOut>
+        <RedirectToSignIn />
+      </SignedOut>
+      <SignedIn>
+        <h1 className="text-3xl text-center sm:text-left font-bold mx-auto container my-10">
+          Good afternoon, {userName}.
+        </h1>
+        <PlannerBlock />
+      </SignedIn>
     </>
   );
 };
