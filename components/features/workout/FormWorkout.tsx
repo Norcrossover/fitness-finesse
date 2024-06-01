@@ -1,26 +1,39 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 
-const FormWorkout: React.FC<{
+interface FormWorkoutProps {
   id: string;
   title: string;
   type: string;
+  value: string | number;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   classInput: string;
   classLabel: string;
-  value: any;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}> = ({ id, title, type, classInput, classLabel, value, onChange }) => (
-  <div className="form-group">
-    <label htmlFor={id} className={classLabel}>
-      {title}
-    </label>
-    <input
-      id={id}
-      type={type}
-      className={classInput}
-      value={value}
-      onChange={onChange}
-    />
-  </div>
-);
+}
+
+const FormWorkout: React.FC<FormWorkoutProps> = ({
+  id,
+  title,
+  type,
+  value,
+  onChange,
+  classInput,
+  classLabel,
+}) => {
+  return (
+    <div className="form-workout">
+      <label htmlFor={id} className={classLabel}>
+        {title}
+      </label>
+      <input
+        id={id}
+        name={id}
+        type={type}
+        value={value}
+        onChange={onChange}
+        className={classInput}
+      />
+    </div>
+  );
+};
 
 export default FormWorkout;

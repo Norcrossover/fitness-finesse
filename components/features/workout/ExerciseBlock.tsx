@@ -2,7 +2,6 @@ import React, { ChangeEvent } from "react";
 import FormWorkout from "@/components/features/workout/FormWorkout";
 import Button from "@/components/common/Button";
 import { ExerciseLog } from "@/models/WorkoutLog";
-import SetFields from "./SetFields";
 
 interface ExerciseBlockProps {
   exercise: ExerciseLog;
@@ -39,13 +38,33 @@ const ExerciseBlock: React.FC<ExerciseBlockProps> = ({
         classLabel="label-workout lg:inline-block lg:mr-10 mt-8 font-semibold"
       />
       {exercise.sets.map((set, index) => (
-        <SetFields
+        <div
           key={index}
-          exerciseName={exercise.name}
-          index={index}
-          set={set}
-          handleSetChange={handleSetChange}
-        />
+          className="sm:flex sm:justify-center border border-slate-500 rounded shadow"
+        >
+          <FormWorkout
+            id={`numReps-${exercise.name}-${index}`}
+            title="# of Reps"
+            type="number"
+            value={set.reps}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              handleSetChange(exercise.name, index, e)
+            }
+            classInput="input-workout lg:inline-block"
+            classLabel="label-workout lg:inline-block lg:mr-8 sm:mt-8"
+          />
+          <FormWorkout
+            id={`numWeight-${exercise.name}-${index}`}
+            title="Weight (lbs)"
+            type="number"
+            value={set.weight}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              handleSetChange(exercise.name, index, e)
+            }
+            classInput="input-workout lg:inline-block"
+            classLabel="label-workout lg:inline-block lg:mr-8 sm:mt-8"
+          />
+        </div>
       ))}
       <div className="flex justify-center gap-4 p-2 m-4">
         <Button

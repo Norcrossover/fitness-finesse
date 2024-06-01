@@ -65,6 +65,7 @@ const WorkoutLogger = () => {
     setIndex: number,
     event: ChangeEvent<HTMLInputElement>,
   ): void => {
+    const { name, value } = event.target;
     const newExercises = exercises.map((exercise: ExerciseLog) => {
       if (exercise.name === exerciseName) {
         return {
@@ -73,7 +74,7 @@ const WorkoutLogger = () => {
             if (index === setIndex) {
               return {
                 ...set,
-                [event.target.name]: Number(event.target.value),
+                [name]: Number(value),
               };
             }
             return set;
@@ -102,7 +103,7 @@ const WorkoutLogger = () => {
   const handleSubmit = (event: { preventDefault: () => void }): void => {
     event.preventDefault();
     const workoutLog: WorkoutLog = {
-      userId: "userId", // Replace with actual userId
+      userId: "userId",
       exerciseList: exercises.map((exercise: ExerciseLog) => ({
         name: exercise.name,
         sets: exercise.sets.map((set: ExerciseSet) => ({
@@ -119,21 +120,7 @@ const WorkoutLogger = () => {
       <div className="w-5/6 mx-auto sm:w-full">
         <form className="bg-slate-800 p-10 rounded-xl" onSubmit={handleSubmit}>
           <ExerciseLogger num={1} title="New Workout" />
-          {/* <FormWorkout
-            id="workoutName"
-            title="Workout Name"
-            type="text"
-            value={workoutName}
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              setWorkoutName(e.target.value)
-            }
-            classInput="input-workout lg:inline-block"
-            classLabel="label-workout lg:inline-block lg:mr-8 mt-8"
-          /> */}
           <hr className="my-4" />
-          {/* <h2 className="text-xl font-semibold sm:text-left">
-            Enter in your exercise details
-          </h2> */}
           {exercises.map((exercise: ExerciseLog, index: number) => (
             <ExerciseBlock
               key={index}
@@ -161,7 +148,6 @@ const WorkoutLogger = () => {
               type="button"
             />
           </div>
-          {/* <hr className="my-4" /> */}
           <div className="flex flex-col font-semibold items-center">
             <h2 className="text-xl">Finished logging? Click here to finish!</h2>
             <Button
