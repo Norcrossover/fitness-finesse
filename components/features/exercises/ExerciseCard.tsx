@@ -9,7 +9,7 @@ const ExerciseCard: React.FC<Exercise> = ({
   muscles,
   muscles_secondary,
 }) => (
-  <div className=" bg-slate-100 grid grid-cols-1 p-4 rounded-lg shadow-lg hover:border hover:border-cyan-500 hover:transformation hover:scale-110 group">
+  <div className=" bg-slate-100 grid grid-cols-1 p-4 rounded-lg shadow-lg hover:border hover:border-cyan-500 hover:transformation hover:scale-105 word-wrap overflow-wrap group max-w-64 lg:max-w-96">
     <h2 className="font-semibold p-1 m-1">{name}</h2>
     <p className="p-1 m-1 text-sm">
       Category: {category.name || "No category provided for exercise"}
