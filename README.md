@@ -94,7 +94,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - `tsconfig.json`: Configuration file for TypeScript compiler options.
 - `package.json`: Manages project dependencies and scripts.
 - `README.md`: Detailed documentation of the project setup and instructions.
-- `middleware.ts`: Specific
 
 ## Schemas
 

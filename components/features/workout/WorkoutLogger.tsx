@@ -3,10 +3,12 @@ import { ChangeEvent, useState } from "react";
 import Button from "@/components/common/Button";
 import ExerciseBlock from "./ExerciseBlock";
 import axios from "axios";
+import { useAuth } from "@clerk/nextjs"; // Import useAuth hook from Clerk
 import { ExerciseLog, WorkoutLog, ExerciseSet } from "@/models/WorkoutLog";
 import ExerciseLogger from "./ExerciseLogger";
 
 const WorkoutLogger = () => {
+  const { getToken, userId } = useAuth(); // Destructure getToken and userId from useAuth
   const [workoutName, setWorkoutName] = useState<string>("");
   const [exercises, setExercises] = useState<ExerciseLog[]>([
     { name: "", sets: [{ reps: 0, weight: 0 }] },
@@ -102,8 +104,14 @@ const WorkoutLogger = () => {
 
   const handleSubmit = (event: { preventDefault: () => void }): void => {
     event.preventDefault();
+
+    if (!userId) {
+      console.error("User not authenticated");
+      return;
+    }
+
     const workoutLog: WorkoutLog = {
-      userId: "userId",
+      userId,
       exerciseList: exercises.map((exercise: ExerciseLog) => ({
         name: exercise.name,
         sets: exercise.sets.map((set: ExerciseSet) => ({
