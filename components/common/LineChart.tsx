@@ -1,4 +1,5 @@
 import { Line } from "react-chartjs-2";
+import ChartDataLabels from "chartjs-plugin-datalabels";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -17,7 +18,8 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  ChartDataLabels
 );
 
 type LineChartProps = {

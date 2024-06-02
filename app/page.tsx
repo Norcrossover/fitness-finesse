@@ -2,6 +2,7 @@ import { SignInButton, SignUpButton } from "@clerk/nextjs";
 import AuthenticationButtonStyling from "@/components/common/authenticationButtonStyling";
 import ExercisePageSnippet from "@/components/features/landingPage/ExercisesPageSnippet";
 import LinePageSnippet from "@/components/features/landingPage/LinePageSnippet";
+import PiePageSnippet from "@/components/features/landingPage/PiePageSnippet";
 
 export default function Home() {
   return (
@@ -19,8 +20,13 @@ export default function Home() {
           <LinePageSnippet />
         </div>
         <div className="row-span-1 bg-cyan-400 p-4 shadow-lg rounded-lg">
-          Content 3
+          <PiePageSnippet />
         </div>
+      </div>
+      <div className="row-span-1 flex items-center justify-center w-full">
+        <h2 className="text-3xl font-bold text-center text-white">
+          Day One or One Day?
+        </h2>
       </div>
       <div className="row-span-1 flex justify-center p-5 w-full">
         <AuthenticationButtonStyling>

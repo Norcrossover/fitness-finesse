@@ -9,6 +9,11 @@ const LinePageSnippet = () => {
         for each user and sum the total weight for each workout session to plot.
         Users can easily track their progress and trend in lifting performance,
         helping with setting future goals for reaching new personal records.
+        Using chartjs2, the total weight it shown as a popup while hovering over
+        a specific point and shows x and y labels to identify the data.
+        Furthermore, there are labels above the help display the total weight
+        thanks to the data labels plugin. The data is presented in visible way
+        to help distinguish between data points.
       </p>
       <Image
         src="/LineDemo.png"
