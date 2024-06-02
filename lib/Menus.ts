@@ -1,7 +1,7 @@
 import { X } from "lucide-react";
 
 export const DIRECTORY = [
-  { name: "Motivation", link: "/dashboard/motivation" },
+  { name: "Exercises", link: "/dashboard/exercises" },
   { name: "Journal", link: "/dashboard/journal" },
   { name: "Logger", link: "/dashboard/logger" },
   { name: "Workout Planner", link: "/dashboard/planner" },
