@@ -36,6 +36,10 @@ body {
   @apply sm:text-lg mb-3 block;
 }
 
+.header-2 {
+  @apply text-white text-xl font-semibold mb-4 text-center sm:text-left;
+}
+
 .button-rounded-cyan {
   @apply shadow-2xl bg-gradient-to-l from-cyan-400 to-cyan-600 text-white tracking-wider w-24 sm:w-32 p-2 rounded-full  hover:from-cyan-500 hover:to-cyan-700 transition duration-300;
 }

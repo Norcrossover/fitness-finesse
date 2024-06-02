@@ -1,39 +1,20 @@
 "use client";
-import React from "react";
+import { useRouter } from "next/navigation";
 import { RedirectToSignIn, SignedIn, SignedOut, useUser } from "@clerk/nextjs";
-
-// function FetchData(): { data: any } {
-//   throw new Error("Function not implemented.");
-// }
+import LineData from "@/components/features/dashboard/LineData";
+import PieData from "@/components/features/dashboard/PieData";
 
 const Dashboard = () => {
-  const { user } = useUser();
+  const { isSignedIn, user, isLoaded } = useUser();
+  const router = useRouter();
 
-  // const { data } = FetchData();
-  // const slate100 = "#F1F5F9";
+  if (!isLoaded) return null;
 
-  // let languageCounts = {};
-  // data.forEach((country) => {
-  //   if (country.official_languages) {
-  //     country.official_languages.forEach((language) => {
-  //       if (languageCounts[language]) {
-  //         languageCounts[language]++;
-  //       } else {
-  //         languageCounts[language] = 1;
-  //       }
-  //     });
-  //   }
-  // });
+  if (!isSignedIn) {
+    router.push("/sign-in");
+  }
 
-  // const chartData = {
-  //   labels: Object.keys(languageCounts),
-  //   datasets: [
-  //     {
-  //       label: "Language",
-  //       data: Object.values(languageCounts),
-  //     },
-  //   ],
-  // };
+  const userName = user?.firstName || "User";
 
   return (
     <div>
@@ -41,23 +22,40 @@ const Dashboard = () => {
         <RedirectToSignIn />
       </SignedOut>
       <SignedIn>
-        <main className="h-full w-full grid grid-rows-12 gap-4 items-center justify-items-center p-4 m-4">
-          <div className="row-span-2 flex-col items-center w-full font-semibold">
-            <h1 className="text-2xl">Good</h1>
-            <h1 className="text-2xl">afternoon,</h1>
-            <h1 className="text-2xl">
-              {user?.fullName ? user?.firstName : user?.username}.
+        <main className="container mx-auto mt-10 mb-20">
+          <div className="mb-6">
+            <h1 className="text-3xl text-center sm:text-left font-bold mx-auto container my-10">
+              Good afternoon, {userName}
             </h1>
           </div>
-          <div className="row-span-8 grid grid-rows-3 gap-4 size-full">
-            <div className="row-span-1 bg-cyan-200 p-5 shadow-lg rounded-lg h-[250px]">
-              These will
+          <div className="grid grid-cols-1">
+            <h2 className="header-2">Check out your personal growth</h2>
+            <div className="bg-cyan-200 p-5 shadow-lg mb-14 rounded-lg md:h-[450px]">
+              <div className="flex flex-col md:flex-row gap-4 items-center justify-between h-full">
+                <div className="w-full md:w-3/4 h-full">
+                  <LineData />
+                </div>
+                <div className="w-full md:w-1/4 h-full flex items-center justify-center">
+                  <p className="text-lg font-semibold leading-7 text-center">
+                    Be the change you want to see! Here is your total weight
+                    lifted over time. Remember that consistency is key.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className="row-span-1 bg-cyan-300 p-5 shadow-lg rounded-lg h-[250px]">
-              Be replaced by
-            </div>
-            <div className="row-span-1 bg-cyan-400 p-5 shadow-lg rounded-lg h-[250px]">
-              Chart Content that shows the Workout data for the current user
+            <h2 className="header-2">Find out your most performed workout</h2>
+            <div className="bg-cyan-200 p-5 shadow-lg rounded-lg md:h-[450px]">
+              <div className="flex flex-col md:flex-row gap-4 items-center justify-between h-full">
+                <div className="w-full md:w-1/4 h-full flex items-center justify-center">
+                  <p className="text-lg font-semibold leading-7 text-center">
+                    Looking for your favorite workout? Here are the top 10 most
+                    exercise performed. Keep up the good work!
+                  </p>
+                </div>
+                <div className="w-full md:w-3/4 h-full">
+                  <PieData />
+                </div>
+              </div>
             </div>
           </div>
         </main>
