@@ -30,7 +30,7 @@ const Dashboard = () => {
           </div>
           <div className="grid grid-cols-1">
             <h2 className="header-2">Check out your personal growth</h2>
-            <div className="bg-cyan-200 p-5 shadow-lg mb-10 rounded-lg md:h-[450px]">
+            <div className="bg-cyan-200 p-5 shadow-lg mb-14 rounded-lg md:h-[450px]">
               <div className="flex flex-col md:flex-row gap-4 items-center justify-between h-full">
                 <div className="w-full md:w-3/4 h-full">
                   <LineData />
