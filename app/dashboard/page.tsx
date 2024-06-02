@@ -1,9 +1,19 @@
 "use client";
-import React from "react";
+import { useRouter } from "next/navigation";
 import { RedirectToSignIn, SignedIn, SignedOut, useUser } from "@clerk/nextjs";
+import LineData from "@/components/features/dashboard/LineData";
 
 const Dashboard = () => {
-  const { user } = useUser();
+  const { isSignedIn, user, isLoaded } = useUser();
+  const router = useRouter();
+
+  if (!isLoaded) return null;
+
+  if (!isSignedIn) {
+    router.push("/sign-in");
+  }
+
+  const userName = user?.firstName || "User";
 
   return (
     <div>
@@ -11,23 +21,29 @@ const Dashboard = () => {
         <RedirectToSignIn />
       </SignedOut>
       <SignedIn>
-        <main className="h-full w-full grid grid-rows-12 gap-4 items-center justify-items-center p-4 m-4">
-          <div className="row-span-2 flex-col items-center w-full font-semibold">
-            <h1 className="text-2xl">Good</h1>
-            <h1 className="text-2xl">afternoon,</h1>
-            <h1 className="text-2xl">
-              {user?.fullName ? user?.firstName : user?.username}.
+        <main className="container mx-auto my-10">
+          <div className="mb-6">
+            <h1 className="text-3xl text-center sm:text-left font-bold mx-auto container my-10">
+              Good afternoon, {userName}
             </h1>
           </div>
-          <div className="row-span-8 grid grid-rows-3 gap-4 size-full">
-            <div className="row-span-1 bg-cyan-200 p-5 shadow-lg rounded-lg h-[250px]">
-              These will
+          <div className="grid grid-cols-1 gap-4">
+            <div className="bg-cyan-200 p-5 shadow-lg rounded-lg md:h-[450px]">
+              <div className="flex flex-col md:flex-row gap-4 items-center justify-between h-full">
+                <div className="w-full md:w-3/4 h-full">
+                  <LineData />
+                </div>
+                <div className="w-full md:w-1/4 h-full flex items-center justify-center">
+                  <p className="text-lg font-semibold leading-7 text-center">
+                    Be the change you want to see! Here is your total weight
+                    lifted over time. Remember that consistency is key. It's
+                    either day one or one day!
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className="row-span-1 bg-cyan-300 p-5 shadow-lg rounded-lg h-[250px]">
+            <div className="bg-cyan-300 p-5 shadow-lg rounded-lg h-full">
               Be replaced by
-            </div>
-            <div className="row-span-1 bg-cyan-400 p-5 shadow-lg rounded-lg h-[250px]">
-              Chart Content that shows the Workout data for the current user
             </div>
           </div>
         </main>

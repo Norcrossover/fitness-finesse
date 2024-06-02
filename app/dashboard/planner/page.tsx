@@ -22,7 +22,7 @@ const Planner = () => {
       </SignedOut>
       <SignedIn>
         <h1 className="text-3xl text-center sm:text-left font-bold mx-auto container my-10">
-          Good afternoon, {userName}.
+          Try something new!
         </h1>
         <PlannerBlock />
       </SignedIn>
