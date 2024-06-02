@@ -7,9 +7,7 @@ const PlannerContent = () => {
   return (
     <div className="container mx-auto text-white flex flex-col sm:flex-row text-center items-center sm:items-start justify-center my-14 gap-10">
       <div className="w-3/4 sm:w-1/2">
-        <h2 className="text-xl font-semibold mb-4 sm:text-left">
-          Find a quick workout!
-        </h2>
+        <h2 className="header-2">Find a quick workout!</h2>
         <WorkoutCategory
           title="Weight lifting"
           exercises={[
@@ -39,9 +37,7 @@ const PlannerContent = () => {
         />
       </div>
       <div className="w-3/4 sm:w-1/2">
-        <h2 className="text-xl font-semibold mb-4 sm:mt-0 sm:text-left">
-          Try Something New!
-        </h2>
+        <h2 className="header-2">Try Something New!</h2>
         <form>
           <fieldset className="bg-slate-800 p-10 text-center rounded-xl">
             <legend className="sr-only">Try Something New</legend>

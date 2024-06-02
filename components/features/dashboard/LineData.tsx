@@ -82,6 +82,14 @@ const LineData = () => {
           size: 18,
         },
       },
+      datalabels: {
+        align: "start",
+        anchor: "end",
+        color: "black",
+        font: {
+          weight: "bold",
+        },
+      },
     },
     scales: {
       x: {
@@ -92,10 +100,6 @@ const LineData = () => {
           font: {
             size: 16,
           },
-          padding: 2,
-        },
-        ticks: {
-          color: "black",
         },
       },
       y: {
@@ -106,11 +110,6 @@ const LineData = () => {
           font: {
             size: 16,
           },
-          padding: 2,
-        },
-        ticks: {
-          stepSize: 250,
-          color: "black",
         },
       },
     },
