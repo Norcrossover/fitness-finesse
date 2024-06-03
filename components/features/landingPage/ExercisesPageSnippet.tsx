@@ -8,9 +8,9 @@ const ExercisePageSnippet = () => {
         alt="A snippet of the Exercise Page is given to show what is displayed on the page."
         width={500}
         height={500}
-        className="w-full shadow rounded self-center p-2 m-2"
+        className="w-full shadow rounded-xl self-center p-2 m-2"
       />
-      <p className="bg-slate-100 rounded shadow p-2 m-2">
+      <p className="bg-slate-100 rounded-xl shadow text-center p-2 m-2">
         Using the WGER API, this page displays displays the API&apos;s data in a
         carousel. This carousel has to buttons located on the left and right
         hand side of the content that allows for easy page navigation.
