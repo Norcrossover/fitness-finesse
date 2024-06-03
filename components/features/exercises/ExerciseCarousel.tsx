@@ -1,12 +1,15 @@
 "use client";
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo, useEffect, useCallback } from "react";
 import useFetchExercises from "../../../hooks/useFetchExercises";
 import ExerciseCard from "./ExerciseCard";
+import { Skeleton } from "@mui/material";
+import ExerciseSearchBar from "./ExerciseSearchBar";
 
 const ExerciseCarousel: React.FC = () => {
   const { data, loading, error } = useFetchExercises(
     "https://wger.de/api/v2/exerciseinfo/?limit=100&language=2",
   );
+
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [itemsPerPage, setItemsPerPage] = useState<number>(20);
@@ -39,28 +42,16 @@ const ExerciseCarousel: React.FC = () => {
     }
   };
 
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value);
+  const handleSearchChange = useCallback((query: string) => {
+    setSearchQuery(query);
     setCurrentPage(0);
-  };
+  }, []);
 
   const handleItemsPerPageChange = (
     e: React.ChangeEvent<HTMLSelectElement>,
   ) => {
     setItemsPerPage(Number(e.target.value));
     setCurrentPage(0);
-  };
-
-  const ExerciseSearchBar = () => {
-    return (
-      <input
-        type="text"
-        value={searchQuery}
-        onChange={handleSearchChange}
-        placeholder="Search exercises..."
-        className="p-2 m-2 border rounded hover:bg-slate-100 focus:border focus:border-cyan-500 shadow"
-      />
-    );
   };
 
   const ItemsDisplayedEditor = () => {
@@ -87,42 +78,58 @@ const ExerciseCarousel: React.FC = () => {
     );
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <div className="flex flex-col">
+        <div className="flex flex-col lg:flex-row justify-evenly">
+          <Skeleton className="w-5/12 h-[100px]" />
+          <Skeleton className="w-5/12 h-[100px]" />
+        </div>
+        <div className="flex justify-center gap-2">
+          <Skeleton className="px-4 py-2 h-12 top-2/4 sticky" />
+          <Skeleton className="w-11/12 h-[1000px]" />
+          <Skeleton className="px-4 py-2 h-12 top-2/4 sticky" />
+        </div>
+      </div>
+    );
   if (error) return <p>Error loading exercises: {error.message}</p>;
 
   return (
     <div className="h-full w-full items-center flex flex-col justify-items-center justify-center p-4">
-      <div className=" flex flex-col sm:flex-row">
-        <ExerciseSearchBar />
+      <div className="flex flex-col sm:flex-row">
+        <ExerciseSearchBar
+          searchQuery={searchQuery}
+          onSearchChange={handleSearchChange}
+        />
+
         <ItemsDisplayedEditor />
       </div>
       <div className="flex justify-between mb-4 relative">
         <button
           onClick={handlePrev}
           disabled={currentPage === 0}
-          className="px-4 py-2 bg-cyan-500 hover:bg-cyan-700 text-white rounded disabled:bg-gray-300 h-12 top-2/4 sticky"
+          aria-label="Travel back to the previous page of exercises"
+          className="px-4 py-2 bg-cyan-700 hover:bg-cyan-800 text-white rounded disabled:bg-gray-400 h-12 top-2/4 sticky"
         >
-          Prev
+          <span>Prev</span>
         </button>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-2 m-2">
           {paginatedData.length === 0 && (
-            <>
-              <ExerciseCard
-                key={null}
-                id={0}
-                name="No values were found with this search query, please try again"
-                description=""
-                category={{ id: 0, name: "" }}
-                equipment={[]}
-                muscles={[]}
-                muscles_secondary={[]}
-                license_author=""
-                aliases={[]}
-                uuid={""}
-                exercise_base_id={0}
-                created={""}
-              />
-            </>
+            <ExerciseCard
+              key={null}
+              id={0}
+              name="No values were found with this search query, please try again"
+              description=""
+              category={{ id: 0, name: "" }}
+              equipment={[]}
+              muscles={[]}
+              muscles_secondary={[]}
+              license_author=""
+              aliases={[]}
+              uuid={""}
+              exercise_base_id={0}
+              created={""}
+            />
           )}
           {paginatedData.map((exercise) => (
             <ExerciseCard
@@ -146,9 +153,10 @@ const ExerciseCarousel: React.FC = () => {
         <button
           onClick={handleNext}
           disabled={currentPage >= totalPages - 1}
-          className="px-4 py-2 bg-cyan-500 hover:bg-cyan-700 text-white rounded disabled:bg-gray-300 h-12 top-2/4 sticky"
+          aria-label="Advance to the next page of exercises"
+          className="px-4 py-2 bg-cyan-700 hover:bg-cyan-800 text-white rounded disabled:bg-gray-400 h-12 top-2/4 sticky"
         >
-          Next
+          <span>Next</span>
         </button>
       </div>
     </div>
