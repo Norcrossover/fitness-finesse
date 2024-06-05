@@ -3,7 +3,7 @@ import Image from "next/image";
 const LinePageSnippet = () => {
   return (
     <div className="flex flex-col lg:flex-row">
-      <p className="bg-slate-100 rounded-xl text-center shadow p-2 m-2">
+      <p className="bg-slate-100 rounded-xl sm:text-lg text-center shadow p-2 m-2">
         This line chart helps visualize the total weight lifted per workout
         session. By fetching data from an API endpoint, we grab the workout logs
         for each user and sum the total weight for each workout session to plot.
