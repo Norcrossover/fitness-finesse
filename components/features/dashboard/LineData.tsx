@@ -4,6 +4,7 @@ import LineChart from "@/components/common/LineChart";
 import { useAuth } from "@clerk/nextjs";
 import fetchWorkoutLogs from "@/app/utils/fetchWorkouts";
 import { WorkoutLog } from "@/models/WorkoutLog";
+import Loading from "./Loading";
 
 interface LineChartData {
   labels: string[];
@@ -117,8 +118,13 @@ const LineData = () => {
 
   return (
     <div className="bg-white rounded-xl flex justify-center items-center h-full">
-      {lineChartData.labels.length > 0 && (
+      {lineChartData.labels.length > 0 ? (
         <LineChart data={lineChartData} options={options} />
+      ) : (
+        <Loading
+          text="Looking for the total weight lifted per your workout session? Log your first workout in
+        the"
+        />
       )}
     </div>
   );

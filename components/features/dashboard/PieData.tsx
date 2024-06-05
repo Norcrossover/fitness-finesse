@@ -5,6 +5,7 @@ import { useAuth } from "@clerk/nextjs";
 import fetchWorkoutLogs from "@/app/utils/fetchWorkouts";
 import { WorkoutLog } from "@/models/WorkoutLog";
 import { Colors } from "@/lib/Color";
+import Loading from "./Loading";
 
 interface PieChartData {
   labels: string[];
@@ -95,8 +96,10 @@ const PieData = () => {
 
   return (
     <div className="bg-white rounded-xl flex justify-center items-center h-full">
-      {pieChartData.labels.length > 0 && (
+      {pieChartData.labels.length > 0 ? (
         <PieChart data={pieChartData} options={options} />
+      ) : (
+        <Loading text="What is your favorite exercise? Find out by logging your first workout in the" />
       )}
     </div>
   );

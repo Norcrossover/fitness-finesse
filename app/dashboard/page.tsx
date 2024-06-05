@@ -36,7 +36,7 @@ const Dashboard = () => {
                   <LineData />
                 </div>
                 <div className="w-full md:w-1/4 h-full flex items-center justify-center">
-                  <p className="text-lg font-semibold leading-7 text-center">
+                  <p className="text-lg sm:font-semibold leading-7 text-center">
                     Be the change you want to see! Here is your total weight
                     lifted over time. Remember that consistency is key.
                   </p>
@@ -47,7 +47,7 @@ const Dashboard = () => {
             <div className="bg-cyan-200 p-5 shadow-lg rounded-lg md:h-[450px]">
               <div className="flex flex-col md:flex-row gap-4 items-center justify-between h-full">
                 <div className="w-full md:w-1/4 h-full flex items-center justify-center">
-                  <p className="text-lg font-semibold leading-7 text-center">
+                  <p className="text-lg sm:font-semibold leading-7 text-center">
                     Looking for your favorite workout? Here are the top 10 most
                     exercise performed. Keep up the good work!
                   </p>

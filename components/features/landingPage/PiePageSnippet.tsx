@@ -10,7 +10,7 @@ const LinePageSnippet = () => {
         height={500}
         className="w-full shadow rounded-xl self-center p-2 m-2"
       />
-      <p className="bg-slate-100 rounded-xl text-center shadow p-2 m-2">
+      <p className="bg-slate-100 rounded-xl sm:text-lg text-center shadow p-2 m-2">
         This pie chart that displays the top 10 most performed exercises. Again,
         by fetching data from an API endpoint, we collect the workout logs for
         each user and analyze the frequency of each exercise. This information
