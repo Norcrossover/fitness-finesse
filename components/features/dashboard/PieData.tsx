@@ -52,7 +52,7 @@ const PieData = () => {
 
     const sortedExercises = Object.entries(exerciseCounts)
       .sort((a, b) => b[1] - a[1])
-      .slice(0, 10);
+      .slice(0, 5);
 
     const labels = sortedExercises.map((exercise) => exercise[0]);
     const data = sortedExercises.map((exercise) => exercise[1]);
@@ -77,7 +77,7 @@ const PieData = () => {
       },
       title: {
         display: true,
-        text: "Top 10 Most Performed Exercises",
+        text: "Top 5 Most Performed Exercises",
         color: "black",
         font: {
           size: 18,
