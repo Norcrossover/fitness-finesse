@@ -7,7 +7,7 @@ import ExerciseSearchBar from "./ExerciseSearchBar";
 
 const ExerciseCarousel: React.FC = () => {
   const { data, loading, error } = useFetchExercises(
-    "https://wger.de/api/v2/exerciseinfo/?limit=100&language=2",
+    "https://wger.de/api/v2/exerciseinfo/?limit=100&language=2"
   );
 
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -17,7 +17,7 @@ const ExerciseCarousel: React.FC = () => {
 
   const filteredData = useMemo(() => {
     return data.filter((exercise) =>
-      exercise.name.toLowerCase().includes(searchQuery.toLowerCase()),
+      exercise.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
   }, [data, searchQuery]);
 
@@ -48,7 +48,7 @@ const ExerciseCarousel: React.FC = () => {
   }, []);
 
   const handleItemsPerPageChange = (
-    e: React.ChangeEvent<HTMLSelectElement>,
+    e: React.ChangeEvent<HTMLSelectElement>
   ) => {
     setItemsPerPage(Number(e.target.value));
     setCurrentPage(0);
@@ -109,7 +109,7 @@ const ExerciseCarousel: React.FC = () => {
           onClick={handlePrev}
           disabled={currentPage === 0}
           aria-label="Travel back to the previous page of exercises"
-          className="px-4 py-2 bg-cyan-700 hover:bg-cyan-800 text-white rounded disabled:bg-gray-400 h-12 top-2/4 sticky"
+          className="px-4 py-2 bg-cyan-400 hover:bg-cyan-500 text-white rounded disabled:bg-gray-400 h-12 top-2/4 sticky"
         >
           <span>Prev</span>
         </button>
@@ -154,7 +154,7 @@ const ExerciseCarousel: React.FC = () => {
           onClick={handleNext}
           disabled={currentPage >= totalPages - 1}
           aria-label="Advance to the next page of exercises"
-          className="px-4 py-2 bg-cyan-700 hover:bg-cyan-800 text-white rounded disabled:bg-gray-400 h-12 top-2/4 sticky"
+          className="px-4 py-2 bg-cyan-400 hover:bg-cyan-500 text-white rounded disabled:bg-gray-400 h-12 top-2/4 sticky"
         >
           <span>Next</span>
         </button>
