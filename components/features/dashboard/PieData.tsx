@@ -99,7 +99,7 @@ const PieData = () => {
       {pieChartData.labels.length > 0 ? (
         <PieChart data={pieChartData} options={options} />
       ) : (
-        <Loading text="What is your favorite exercise? Find out by logging your first workout in the" />
+        <Loading text="Looking for your favorite exercise? Find out by logging your first workout in the" />
       )}
     </div>
   );

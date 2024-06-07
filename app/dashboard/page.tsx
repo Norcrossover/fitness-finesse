@@ -37,8 +37,8 @@ const Dashboard = () => {
                 </div>
                 <div className="w-full md:w-1/4 h-full flex items-center justify-center">
                   <p className="text-lg sm:font-semibold leading-7 text-center">
-                    Be the change you want to see! Here is your total weight
-                    lifted over time. Remember that consistency is key.
+                    Here is your total weight lifted over time. Remember that
+                    consistency is key!
                   </p>
                 </div>
               </div>
@@ -48,8 +48,8 @@ const Dashboard = () => {
               <div className="flex flex-col md:flex-row gap-4 items-center justify-between h-full">
                 <div className="w-full md:w-1/4 h-full flex items-center justify-center">
                   <p className="text-lg sm:font-semibold leading-7 text-center">
-                    Looking for your favorite workout? Here are the top 10 most
-                    exercise performed. Keep up the good work!
+                    Here are the top 5 most exercise performed. Keep up the good
+                    work!
                   </p>
                 </div>
                 <div className="w-full md:w-3/4 h-full">
