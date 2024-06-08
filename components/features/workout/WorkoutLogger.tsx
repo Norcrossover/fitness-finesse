@@ -100,7 +100,9 @@ const WorkoutLogger = () => {
     }
   };
 
-  const handleSubmit = async (event: { preventDefault: () => void }): void => {
+  const handleSubmit = async (event: {
+    preventDefault: () => void;
+  }): Promise<void> => {
     event.preventDefault();
 
     if (!userId) {
