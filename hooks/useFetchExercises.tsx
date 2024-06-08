@@ -24,7 +24,7 @@ const useFetchExercises = (initialUrl: string) => {
           console.log(response);
           const { data } = response;
           allData.push(
-            ...data.results.filter((exercise) => exercise.language.id === 2),
+            ...data.results.filter((exercise) => exercise?.language?.id === 2),
           );
           nextUrl = data.next;
         }
