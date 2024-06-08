@@ -16,12 +16,12 @@ const LinePageSnippet = () => {
         each user and analyze the frequency of each exercise. This information
         helps users understand which exercises they perform the most, allowing
         them to see their workout patterns and routines. Using chartjs 2 pie,
-        each exercise has a corresponding color and number associated with it's
-        frequency and type. It has a distinct color for each slice of pie and
-        allows for responsive design as the data/color is shown as a pop up when
-        hovering over a specific portion of the pie. Furthermore, a user can
-        choose what exercises to see by clicking on one of the choices from the
-        legend. This helps focus on specific workouts and their occurrences.
+        each exercise has a corresponding color and number associated with
+        it&apos;s frequency and type. It has a distinct color for each slice of
+        pie and allows for responsive design as the data/color is shown as a pop
+        up when hovering over a specific portion of the pie. Furthermore, a user
+        can choose what exercises to see by clicking on one of the choices from
+        the legend. This helps focus on specific workouts and their occurrences.
       </p>
     </div>
   );
